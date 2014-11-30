@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>melink-index by siyanhui</title>
+    <title>app-link by siyanhui</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -17,7 +17,7 @@
   <body>
     <div class="wrapper">
       <header class="without-description">
-        <h1>melink-index</h1>
+        <h1>app-link</h1>
         <p></p>
         <p class="view"><a href="https://github.com/siyanhui/melink">View the Project on GitHub <small>siyanhui/melink</small></a></p>
         <ul>
@@ -28,86 +28,70 @@
       </header>
       <section>
         <h1>
-<a id="me-link-文档" class="anchor" href="#me-link-%E6%96%87%E6%A1%A3" aria-hidden="true"><span class="octicon octicon-link"></span></a>me Link 文档</h1>
+<a id="app-接入指南" class="anchor" href="#app-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97" aria-hidden="true"><span class="octicon octicon-link"></span></a>App 接入指南</h1>
 
-<p><strong>版本</strong> v0.4</p>
+<p>文档中, App表示客户端,Server表示服务器端</p>
 
 <h2>
-<a id="app接入" class="anchor" href="#app%E6%8E%A5%E5%85%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>App接入</h2>
+<a id="接入步骤" class="anchor" href="#%E6%8E%A5%E5%85%A5%E6%AD%A5%E9%AA%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>接入步骤</h2>
 
-<ul>
-<li>参考<a href="resources/app_link.md">App接入指南</a>
+<ol>
+<li>启动App<br>
 </li>
-</ul>
+<li>App本地判断是否已经在<code>Server</code>端注册过, 如果没有注册过,则<code>Server</code>返回一个<code>appid</code>和<code>appsecret</code>作为身份和加密串,如果无特殊说明<code>App</code>每次请求<code>Server</code>都必须带上这个<code>appid</code>作为身份标识,另外还必须传输<code>timestamp</code>时间戳参数作为动态签名用,每次请求<code>Server</code>都将带有<code>sign</code>签名参数,<code>Server</code>根据<code>sign</code>来判断此<code>App</code>请求是否合法。</li>
+</ol>
+
+<p><code>Sign</code>签名参数生成规则:<br>
+将所传递参数的key根据字典排序,然后将<code>key</code>和<code>value</code>字符串想加起来,将最终的字符串<code>md5</code>哈希得到<code>sign</code>签名  </p>
 
 <h2>
-<a id="发起api请求" class="anchor" href="#%E5%8F%91%E8%B5%B7api%E8%AF%B7%E6%B1%82" aria-hidden="true"><span class="octicon octicon-link"></span></a>发起API请求</h2>
+<a id="请求示例" class="anchor" href="#%E8%AF%B7%E6%B1%82%E7%A4%BA%E4%BE%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>请求示例</h2>
 
-<p><strong>API根路径</strong> - <code>https://api.stampmeapp.com/{v1}/{appid}/</code>, 其中 <code>/{v1}</code> 为API版本号, <code>{appid}</code> 为应用ID<br>
-({appid}的获取方式,参考 <strong>App接入</strong> 部分) 
-测试API采用 <code>HTTP</code> 请求方式, 线上API只支持 <code>HTTPS</code>  </p>
+<p>例如用户<code>post</code>登录接口,参数如下：</p>
 
-<p>若需要请求所有的大头贴素材分组,则在根路径下加上大头贴素材资源的子路径:   <a href="https://api.stampmeapp.com/%7Bv1%7D/%7Bappid%7D/materials/expression/group.json">https://api.stampmeapp.com/{v1}/{appid}/materials/expression/group.json</a>  </p>
+<pre><code>mobile=13333333333&amp;password=123456&amp;appid=123456&amp;timestamp=123456
+</code></pre>
 
-<p>如果是 <code>curl</code> 测试的话,完整的请求如下:  </p>
+<p>1.先根据字典将<code>key</code>排序,<code>appid,mobile,password,timestamp</code></p>
 
-<div class="highlight highlight-shell"><pre>curl -u appid:appsecret -H <span class="pl-s1"><span class="pl-pds">'</span>User-Agent: MyApp (yourname@example.com)<span class="pl-pds">'</span></span> https://api.stampmeapp.com/{v1}/{appid}/materials/expression/groups.json</pre></div>
+<p>2.拼接字符串</p>
 
-<p>如果需要创建大头贴素材, 使用的是同一个资源，不同的是需要加上 <code>Content-Type</code> :  </p>
+<pre><code>string str =
+"appid123456"+"mobile1333333333"+"password123456"+"timestamp123456"+appsecret
+</code></pre>
 
-<div class="highlight highlight-shell"><pre>curl -u appid:appsecret \
-  -H <span class="pl-s1"><span class="pl-pds">'</span>Content-Type: Application/json<span class="pl-pds">'</span></span> \
-  -H <span class="pl-s1"><span class="pl-pds">'</span>User-Agent: MyApp (yourname@example.com)<span class="pl-pds">'</span></span> \
-  -d <span class="pl-s1"><span class="pl-pds">'</span>{ "name": "配饰1" }<span class="pl-pds">'</span></span> \
-  https://api.stampmeapp.com/{v1}/{appid}/emoticons/groups.json</pre></div>
+<p>3.对生成的<code>str</code>进行<code>md5</code>哈希<code>string sign = md5(str)</code></p>
 
-<h2>
-<a id="数据格式" class="anchor" href="#%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>数据格式</h2>
+<p>4.将<code>sign</code>参数作为签名参数传给<code>Server</code>,<code>Server</code>获取到所有参数,将sign签名排除之后用同样的方法声称<code>sign</code>来验证。如果合法则继续操作流程,测试环境可暂时不加这个限制,但是功能要预留。</p>
 
-<p>API仅支持<code>JSON</code>格式, 该<code>JSON</code>数据没有根元素, 其中的属性字段我们采用 <code>snake_case</code> 来描述<br>
-当对API使用 <code>POST</code> 和 <code>PUT</code> 方法时, 请在请求头部加入 <code>Content-Type: Application/json; charset=utf-8</code><br>
-<strong>所有的API请求以 .json 结尾,代表我们仅接受与返回JSON</strong>  </p>
+<p>5.签名时的中文需要使用<code>utf-8</code>进行<code>urlencode</code>,<code>signature</code>验证签名生成方式修改为</p>
 
-<h2>
-<a id="使用http缓存--" class="anchor" href="#%E4%BD%BF%E7%94%A8http%E7%BC%93%E5%AD%98--" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用HTTP缓存  </h2>
+<pre><code>md5(appid+appsecret+timestamp) //这里注意把MD5值设置为大写
+</code></pre>
 
-<p>为提高接入应用的请求和响应速度,同时降低服务器负载,多数(尤其是数据量大)的返回数据我们会加上 <code>Last-Modified</code> 头部, 当第一次请求
-某个资源时,保存该 <code>Last-Modified</code> 值, 后续的请求将该值作为 <code>If-Modified-Since</code> 重新发回服务器,如果资源没有任何变化, 服务器则
-返回 <code>304 Not Modified</code>  </p>
+<p>6.<code>http</code>接口如不特殊说明,都表示<code>App</code>向<code>Server</code>请求,如不特殊说明,请求都将带有<code>sign</code>,<code>appid</code>和<code>timestamp</code>。</p>
 
-<h2>
-<a id="错误处理" class="anchor" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>错误处理</h2>
+<p>6.1、如果获取失败,响应格式为：</p>
 
-<p>当API服务器遇到问题时,你会看到 5xx 的错误反馈, 举例如下:  </p>
+<div class="highlight highlight-json"><pre>    {
+    <span class="pl-s1"><span class="pl-pds">"</span>status<span class="pl-pds">"</span></span>:<span class="pl-s1"><span class="pl-pds">"</span>fail<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>code<span class="pl-pds">"</span></span>:<span class="pl-c1">1001</span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>result<span class="pl-pds">"</span></span>:<span class="pl-s1"><span class="pl-pds">"</span>数据库连接失败<span class="pl-pds">"</span></span>
+    }</pre></div>
 
-<ul>
-<li><code>500 API Server Down</code></li>
-<li><code>502 Bad Gateway</code></li>
-<li><code>503 Service Unavailable</code></li>
-<li><code>504 Gateway Timeout</code></li>
-</ul>
+<p>6.2、如果获取成功,响应格式为：</p>
+
+<div class="highlight highlight-json"><pre>    {
+     <span class="pl-s1"><span class="pl-pds">"</span>status<span class="pl-pds">"</span></span>:<span class="pl-s1"><span class="pl-pds">"</span>success<span class="pl-pds">"</span></span>,
+     <span class="pl-s1"><span class="pl-pds">"</span>code<span class="pl-pds">"</span></span>:<span class="pl-c1">200</span>,
+     <span class="pl-s1"><span class="pl-pds">"</span>result<span class="pl-pds">"</span></span>:<span class="pl-s1"><span class="pl-pds">"</span>{data}<span class="pl-pds">"</span></span> <span class="pl-ii">//不同接口返回的data不同</span>
+    }</pre></div>
 
 <h2>
-<a id="可用api列表" class="anchor" href="#%E5%8F%AF%E7%94%A8api%E5%88%97%E8%A1%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>可用API列表</h2>
+<a id="特别说明" class="anchor" href="#%E7%89%B9%E5%88%AB%E8%AF%B4%E6%98%8E" aria-hidden="true"><span class="octicon octicon-link"></span></a>特别说明</h2>
 
-<ul>
-<li>
-<a href="resources/auth.md">Auth</a> - App认证授权相关接口</li>
-<li>
-<a href="resources/user_basic.md">User Basic</a> - 用户基本接口</li>
-<li>
-<a href="resources/user_roles.md">User Roles</a> - 用户角色相关接口</li>
-<li>
-<a href="resources/user_emoticons.md">User Emoticons</a> - 用户大头贴相关接口</li>
-<li>
-<a href="resources/user_expressions.md">User Expressions</a> - 用户动态表情相关接口</li>
-<li>
-<a href="resources/materials.md">Materials</a> - 分组与素材相关接口(Me App专用)</li>
-<li>
-<a href="resources/open.md">Open</a> - 对外开放数据接口</li>
-<li>
-<a href="resources/page.md">Page</a> - 页面接入接口</li>
-</ul>
+<p>后续文档中的返回值都表示响应成功里的<code>result</code>属性值,如没有特殊说明,接口写到的参数都为必传,并且都需要<code>sign</code>签名和<code>appid</code>。
+所有接口中传递的参数,请求<code>url</code>地址和返回值的<code>key</code>都约定为纯小写。</p>
       </section>
     </div>
     <footer>
