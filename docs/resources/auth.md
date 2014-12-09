@@ -6,7 +6,7 @@ App认证授权相关接口
 ----------------
 App向Server注册设备,获取appid和appkey
 
-地址: `/v1/{appid}/app/register`
+地址: `/v1/app/register`
 
 方法: `GET`
 
@@ -31,7 +31,7 @@ App向Server注册设备,获取appid和appkey
 获取版本号
 ----------------
 
-地址:`/v1/{appid}/app/version"`
+地址:`/v1/app/version"`
 
 方法:`GET`
 
