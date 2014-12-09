@@ -5,7 +5,8 @@ Materials
 获取角色,大头贴素材分组与素材
 ----------------
 
-地址:`/materials/roles_and_emoticons`
+地址:`/v1/{appid}/materials/roles"`
+地址:`/v1/{appid}/materials/emoticons"`
 
 方法:`GET`
 
@@ -25,16 +26,18 @@ Materials
         "name":"素材分组的名称",
         "ename":"素材分组的英文短名称",
         "intro":"素材分组的简介",
-        "iconurl":"素材分组的封面图片",
-        "autoversion":"素材分组的版本号",
+        "icon_url":"素材分组的封面图片",
+        "auto_version":"素材分组的版本号",
         "type":3 //分组的类型,1表示角色分组,2表示大头贴分组,3表示角色和大头贴公用分组
+        "sort":1 //排序,越大排越前面
         "materials":[
             {
                 "id":333, //素材id
                 "ename":"素材的英文短命名",
                 "name":"素材的名称",
-                "imgurl":"素材图片的地址",
+                "img_url":"素材图片的地址",
                 "secondary_imgurl":"素材图片的备用地址",
+                "sort":1 //排序,越大排越前面
             },// ...
         ]
     }, 
@@ -45,7 +48,8 @@ Materials
 按分组获取角色,大头贴素材
 ----------------
 
-地址:`/materials/role_and_emoticon/group/{groupid}`
+地址:`/v1/{appid}/materials/role/group"/{groupid}`
+地址:`/v1/{appid}/materials/emoticon/group"/{groupid}`
 
 方法:`GET`
 
@@ -55,7 +59,7 @@ Materials
 
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
-| autoversion   |String  |素材分组版本号                          |否 |
+| auto_version   |String  |素材分组版本号                          |否 |
 
 返回值 - 无缓存:
 ```json
@@ -64,16 +68,18 @@ Materials
     "name":"素材分组的名称",
     "ename":"素材分组的英文短名称",
     "intro":"素材分组的简介",
-    "iconurl":"素材分组的封面图片",
-    "autoversion":"此素材分组的版本号",
+    "icon_url":"素材分组的封面图片",
+    "auto_version":"此素材分组的版本号",
     "type":3, //分组的类型,1表示角色分组,2表示大头贴分组,3表示角色和大头贴公用分组
+    "sort":1 //排序,越大排越前面
     "materials":[
         {
             "id":333, //素材的id
             "ename":"素材的英文短名称",
             "name":"素材名称",
-            "imgurl":"素材封面图片地址",
+            "img_url":"素材封面图片地址",
             "secondary_imgurl":"素材封面图片备用地址"
+            "sort":1 //排序,越大排越前面
         }, //...
     ]
 }
@@ -89,7 +95,7 @@ Materials
 获取动态表情素材分组与素材
 ----------------
 
-地址:`/materials/expressions`
+地址:`/v1/{appid}/materials/expressions"`
 
 方法:`GET`
 
@@ -109,15 +115,17 @@ Materials
         "name":"动态表情素材分组的名称",
         "ename":"动态表情素材分组的英文短名称",
         "intro":"动态表情素材分组的简介",
-        "iconurl":"动态表情素材分组的封面图片",
-        "autoversion":"动态表情素材分组的版本号",
+        "icon_url":"动态表情素材分组的封面图片",
+        "auto_version":"动态表情素材分组的版本号",
+        "sort":1 //排序,越大排越前面
         "facials":[
             {
                 "id":333 //动态表情素材ID
                 "ename":"动态表情素材的英文短名称",
                 "name":"动态表情素材名称",
-                "imgurl":"动态表情素材图片地址",
+                "img_url":"动态表情素材图片地址",
                 "secondary_imgurl":"动态表情素材图片备用地址"
+                "sort":1 //排序,越大排越前面
             }, ...
         ]
     }, ...
@@ -127,7 +135,7 @@ Materials
 按分组获取动态表情素材
 ----------------
 
-地址:`/materials/expressions/group/{groupid}`
+地址:`/v1/{appid}/materials/expression/group"/{groupid}`
 
 方法:`GET`
 
@@ -137,7 +145,7 @@ Materials
 
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
-| autoversion   |String  |素材分组版本号                          |否 |
+| auto_version   |String  |素材分组版本号                          |否 |
 
 
 返回值 - 无缓存:
@@ -147,15 +155,17 @@ Materials
     "name":"动态表情素材分组的名称",
     "ename":"动态表情素材分组的英文短名称",
     "intro":"动态表情素材分组的简介",
-    "iconurl":"动态表情素材分组的图片",
-    "autoversion":"动态表情素材分组的版本号",
+    "icon_url":"动态表情素材分组的图片",
+    "auto_version":"动态表情素材分组的版本号",
+    "sort":1 //排序,越大排越前面
     "materials":[
         {
             "id":333（int）（动态表情素材的id）
             "ename":"动态表情素材的英文短命名",
             "name":"动态表情素材名称",
-            "imgurl":"动态表情素材的图片地址",
+            "img_url":"动态表情素材的图片地址",
             "secondary_imgurl":"动态表情素材的备用图片地址"
+            "sort":1 //排序,越大排越前面
         }, //...
     ]
 }

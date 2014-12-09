@@ -5,7 +5,7 @@ User Roles
 获取用户角色
 ----------------
 
-地址:`/user/roles`
+地址:`/v1/{appid}/user/roles"`
 
 方法:`GET`
 
@@ -24,8 +24,8 @@ User Roles
         "id":123,
         "name":"角色名",
         "gender":0, //0表示女性，1表示男性
-        "imgurl":"此角色拼接出来的头像图片地址",
-        "isdefault":true 
+        "img_url":"此角色拼接出来的头像图片地址",
+        "is_default":true
     }, //...
 
 ]
@@ -34,7 +34,7 @@ User Roles
 获取用户角色详情
 ----------------
 
-地址:`/user/role/{roleid}`
+地址:`/v1/{appid}/user/role"/{roleid}`
 
 方法:`GET`
 
@@ -52,8 +52,8 @@ User Roles
     "id":123,
     "name":"角色名",
     "gender":0, // 0表示女性，1表示男性
-    "roleimgurl":"此角色拼接出来的头像图片地址",
-    "isdefault":true,
+    "role_img_url":"此角色拼接出来的头像图片地址",
+    "is_default":true,
     "materials":[
            {
                 "id":111,
@@ -67,11 +67,11 @@ User Roles
 新增或更新用户角色
 ----------------
 
-地址:`/user/role/{roleid}`
+地址:`/v1/{appid}/user/role"/{roleid}`
 
 方法:`POST`
 
-说明:当传递`roleid`时，表示更新此角色信息，当不传递`roleid`时，表示添加此用户的角色信息，另外多个`materialid`根据以下方式传递
+说明:当传递`roleid`为0时，表示更新此角色信息，当不传递`roleid`时，表示添加此用户的角色信息，另外多个`materialid`根据以下方式传递,roleid为0时，表示新增
 
 参数:
 
@@ -80,8 +80,8 @@ User Roles
 | logintoken     |String  |用户登录令牌识别码                    |*是 |
 | name           |String  |角色名称                             |*新增必传| 
 | gender         |Int     |角色性别                             |*新增必传| 
-| imgdata        |String  |拼接好的角色图片（base64字符串）        |*新增必传|
-| materialids    |Array   |素材ID列表                           |*是 | 
+| img_data        |String  |拼接好的角色图片（base64字符串）        |*新增必传|
+| material_ids    |Array   |素材ID列表                           |*是 |
 | adjustments    |Array   |素材变换列表                          |*是 | 
 
 返回值:
@@ -89,14 +89,14 @@ User Roles
 {
     "id":111,
     "name":"角色名称",
-    "imgurl":"图片地址"
+    "img_url":"图片地址"
 }
 ```
 
 删除用户角色
 ----------------
 
-地址:`/user/role/{roleid}`
+地址:`/v1/{appid}/user/role"/{roleid}`
 
 方法:`DELETE`
 

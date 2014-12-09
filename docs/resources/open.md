@@ -9,7 +9,7 @@ Open
 获取用户默认角色
 ----------------
 
-地址:`/user/role/{username}`
+地址:`/v1/{appid}/user/role/{username}`
 
 方法:`GET`
 
@@ -26,7 +26,7 @@ Open
 获取用户默认大头贴
 ----------------
 
-地址:`/user/emoticon/{username}`
+地址:`/v1/{appid}/user/emoticon/{username}`
 
 方法:`GET`
 

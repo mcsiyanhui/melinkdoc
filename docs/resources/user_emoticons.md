@@ -5,7 +5,7 @@ User Emoticons
 获取用户大头贴列表
 ----------------
 
-地址:`/user/emoticons`
+地址:`/v1/{appid}/user/emoticons"`
 
 方法:`GET`
 
@@ -22,7 +22,7 @@ User Emoticons
 [
     {
         "id":123, //大头贴ID
-        "imgurl":"大头贴图片地址",
+        "img_url":"大头贴图片地址",
         "is_default":true
     }, //...
 
@@ -32,7 +32,7 @@ User Emoticons
 获取用户大头贴详情
 ----------------
 
-地址:`/user/emoticon/{emoticonid}`
+地址:`/v1/{appid}/user/emoticon"/{emoticonid}`
 
 方法:`GET`
 
@@ -50,16 +50,16 @@ User Emoticons
     "id":123,
     "name":"大头贴名称",
     "gender":0, //0表示女性, 1表示男性
-    "imgurl":"大头贴图片地址",
+    "img_url":"大头贴图片地址",
     "is_default":true,
-    "baseroleid":111 //此大头贴的来源角色ID
-    "materials":[
+    "base_roleid":111 //此大头贴的来源角色ID
+    "materials":{
        {
             "id":111,
             "ename":"唯一标识", // 这里后台可以录入客户端原来对于某一个素材唯一标识, 免去重复编码
             "adjustment":{"zoom":100} //变形, 偏移, 缩放等
        }, //...
-    ]
+    }
 }
 ```
 
@@ -67,11 +67,11 @@ User Emoticons
 新增或更新用户大头贴
 ----------------
 
-地址:`/user/emoticon/{emoticonid}`
+地址:`/v1/{appid}/user/emoticon"/{emoticonid}`
 
 方法:`POST`
 
-说明:当传递`emoticonid`时，表示更新此大头贴信息，当不传递`emoticonid`时，表示添加此用户的大头贴信息，另外多个`materialid`根据以下方式传递
+说明:当传递`emoticonid`为0时，表示更新此大头贴信息，当不传递`emoticonid`时，表示添加此用户的大头贴信息，另外多个`materialid`根据以下方式传递
 
 参数:
 
@@ -80,59 +80,58 @@ User Emoticons
 | logintoken     |String  |用户登录令牌识别码                    |*是 |
 | name           |String  |大头贴名称                           |*新增必传| 
 | gender         |Int     |大头贴性别                            |*新增必传| 
-| imgdata        |String  |拼接好的大头贴图片（base64字符串）       |*新增必传|
+| img_data        |String  |拼接好的大头贴图片（base64字符串）       |*新增必传|
 | base_roleid    |Int     |此大头贴的来源角色ID                   |*新增必传|
-| isdefault      |true    |是否为默认大头贴                      |否|
-| materialids    |Array   |素材ID列表                           |*是 | 
-| adjustments    |Array   |素材变换列表                          |*是 | 
+| is_default      |true    |是否为默认大头贴                      |否|
+| material_ids    |JsonArray   |素材ID列表,[1,2,3,4]                           |*是 |
+| adjustments     |JsonArray   |素材变换列表.['1','2','3']                          |*是 |
 
 返回值:
 ```json
 {
     "id":111,
     "name":"大头贴名称",
-    "imgurl":"大头贴图片地址",
-    "isdefault":"是否默认大头贴"
+    "img_url":"大头贴图片地址",
+    "is_default":"是否默认大头贴"
 }
 ```
 
 删除用户大头贴
 ----------------
 
-地址:`/user/emoticon/{emoticonid}`
+地址:`/v1/{appid}/user/emoticon"/{emoticonid}`
 
 方法:`DELETE`
 
-说明:无
+说明:emoticonid,In,大头贴ID
 
 参数:
 
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
 | logintoken     |String  |用户登录令牌识别码                    |*是 |
-| emoticonid     |Int     |大头贴ID                            |*是 |
-| name           |String  |大头贴名称                           |*是 | 
+| name           |String  |大头贴名称                         |*是 |
 
 返回值:
 ```json
 {}
 ```
 
-设置用户默认大头贴
+设置用户默认大头贴(暂时不需要，设置默认通过更新用户大头贴接口)
 ----------------
 
 地址:`/user/emoticon/{emoticonid}/default`
 
 方法:`POST`
 
-说明:设置该用户默认大头贴
+说明:设置该用户默认大头贴,emoticonid,Int,大头贴ID
 
 参数:
 
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
 | logintoken     |String  |用户登录令牌识别码                    |*是 |
-| emoticonid     |Int     |大头贴ID                            |*是 |
+
 
 返回值:
 ```json

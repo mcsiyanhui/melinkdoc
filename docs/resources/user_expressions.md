@@ -5,7 +5,7 @@ User Expressions
 获取用户动态表情列表
 ----------------
 
-地址:`/user/expressions`
+地址:`/v1/{appid}/user/expressions"`
 
 方法:`GET`
 
@@ -23,7 +23,7 @@ User Expressions
     {
         "id":111,
         "name":"动态表情图片名称",
-        "imgurl":"动态表情图片地址",
+        "img_url":"动态表情图片地址",
         "is_default":"是否默认动态表情"
    }, //...
 ]
@@ -32,11 +32,11 @@ User Expressions
 新增用户动态表情
 ----------------
 
-地址:`/user/expression`
+地址:`/v1/{appid}/user/expression"/{expressionid}`
 
 方法:`POST`
 
-说明:动态表情为单向生成,暂不支持修改
+说明:动态表情为单向生成,暂不支持修改,expressionid 为0时，表示新增
 
 参数:
 
@@ -59,7 +59,7 @@ User Expressions
 删除用户动态表情
 ----------------
 
-地址:`/user/expression/{expressionid}`
+地址:`/v1/{appid}/user/expression"/{expressionid}`
 
 方法:`DELETE`
 

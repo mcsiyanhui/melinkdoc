@@ -10,16 +10,16 @@ App接入
 发起API请求
 ----------------
 
-**API根路径** - `https://api.stampmeapp.com/{v1}/{appid}/`, 其中 `/{v1}` 为API版本号, `{appid}` 为应用ID  
+**API根路径** - `https://api.stampmeapp.com/{v1}"/`, 其中 `/{v1}` 为API版本号, `{appid}` 为应用ID  
 ({appid}的获取方式,参考 **App接入** 部分) 
 测试API采用 `HTTP` 请求方式, 线上API只支持 `HTTPS`  
 
-若需要请求所有的大头贴素材分组,则在根路径下加上大头贴素材资源的子路径:   https://api.stampmeapp.com/{v1}/{appid}/materials/expression/group.json  
+若需要请求所有的大头贴素材分组,则在根路径下加上大头贴素材资源的子路径:   https://api.stampmeapp.com/{v1}"/materials/expression/group.json  
 
 如果是 `curl` 测试的话,完整的请求如下:  
 
 ```shell
-curl -u appid:appsecret -H 'User-Agent: MyApp (yourname@example.com)' https://api.stampmeapp.com/{v1}/{appid}/materials/expression/groups.json
+curl -u appid:appsecret -H 'User-Agent: MyApp (yourname@example.com)' https://api.stampmeapp.com/{v1}"/materials/expression/groups.json
 ```
 如果需要创建大头贴素材, 使用的是同一个资源，不同的是需要加上 `Content-Type` :  
 
@@ -28,7 +28,7 @@ curl -u appid:appsecret \
   -H 'Content-Type: Application/json' \
   -H 'User-Agent: MyApp (yourname@example.com)' \
   -d '{ "name": "配饰1" }' \
-  https://api.stampmeapp.com/{v1}/{appid}/emoticons/groups.json
+  https://api.stampmeapp.com/{v1}"/emoticons/groups.json
 ```
 
 数据格式
