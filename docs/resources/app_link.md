@@ -6,7 +6,7 @@ App 接入指南
 接入步骤
 ----------------
 1. 启动App  
-2. App本地判断是否已经在`Server`端注册过, 如果没有注册过,则`Server`返回一个`appid`和`appsecret`作为身份和加密串,如果无特殊说明`App`每次请求`Server`都必须带上这个`appid`作为身份标识,另外还必须传输`timestamp`时间戳参数作为动态签名用,每次请求`Server`都将带有`sign`签名参数,`Server`根据`sign`来判断此`App`请求是否合法。
+2. App本地判断是否已经在`Server`端注册过, 如果没有注册过,则`Server`返回一个`appid`和`appsecret`作为身份和加密串,如果无特殊说明`App`每次请求`Server`都必须在请求路径里面`/{v1}`版本号后面带上这个`appid`作为身份标识,另外还必须传输`timestamp`时间戳参数作为动态签名用,每次请求`Server`都将带有`sign`签名参数,`Server`根据`sign`来判断此`App`请求是否合法。
 
 `Sign`签名参数生成规则:  
 将所传递参数的key根据字典排序,然后将`key`和`value`字符串想加起来,将最终的字符串`md5`哈希得到`sign`签名  
@@ -19,14 +19,14 @@ App 接入指南
 
 例如用户`post`登录接口,参数如下：
 
-    mobile=13333333333&password=123456&appid=123456&timestamp=1417655951
+    mobile=13333333333&password=123456&timestamp=1417655951
 
-1.先根据字典将`key`排序,`appid,mobile,password,timestamp`
+1.先根据字典将`key`排序,`mobile,password,timestamp`
 
 2.拼接字符串
 
     string str =
-    "appid123456"+"mobile1333333333"+"password123456"+"timestamp1417655951"+appsecret
+    "mobile1333333333"+"password123456"+"timestamp1417655951"+appsecret
 
 3.对生成的`str`进行`md5`哈希`string sign = toupper(md5(str))`
 
