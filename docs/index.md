@@ -65,4 +65,5 @@ API仅支持`JSON`格式, 该`JSON`数据没有根元素, 其中的属性字段�
 * [Materials](resources/materials.md) - 分组与素材相关接口(Me App专用)
 * [Open](resources/open.md) - 对外开放数据接口
 * [Page](resources/page.md) - 页面接入接口
+* [Share](resources/share.md) - 分享接口
 
