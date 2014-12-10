@@ -5,7 +5,7 @@ User Emoticons
 获取用户大头贴列表
 ----------------
 
-地址:`/v1/{appid}/user/emoticons"`
+地址:`/v1/{appid}/user/emoticons`
 
 方法:`GET`
 
@@ -23,7 +23,13 @@ User Emoticons
     {
         "id":123, //大头贴ID
         "img_url":"大头贴图片地址",
-        "is_default":true
+        "is_default":true,
+        "base_role_id":"基于角色id",
+        "gender":"0女1男",
+        "name":"大头贴名称",
+        "sort":2, //排序
+        "update_time":"2014-11-28 17:01:47"//更新时间
+        "write_time":"2014-11-28 17:01:47"//创建时间
     }, //...
 
 ]
@@ -32,11 +38,11 @@ User Emoticons
 获取用户大头贴详情
 ----------------
 
-地址:`/v1/{appid}/user/emoticon"/{emoticonid}`
+地址:`/v1/{appid}/user/emoticon/{emoticonid}`
 
 方法:`GET`
 
-说明:此接口请配合获取分组素材接口使用, 这里将不返回用户所有素材内容, 而仅是素材标识和分组标识
+说明:此接口将返回某一个大头贴的详细关联信息
 
 参数:
 
@@ -53,6 +59,9 @@ User Emoticons
     "img_url":"大头贴图片地址",
     "is_default":true,
     "base_roleid":111 //此大头贴的来源角色ID
+    "sort":2, //排序
+    "update_time":"2014-11-28 17:01:47"//更新时间
+    "write_time":"2014-11-28 17:01:47"//创建时间
     "materials":{
        {
             "id":111,
@@ -67,32 +76,31 @@ User Emoticons
 新增或更新用户大头贴
 ----------------
 
-地址:`/v1/{appid}/user/emoticon"/{emoticonid}`
+地址:`/v1/{appid}/user/emoticon/{emoticonid}`
 
 方法:`POST`
 
-说明:当传递`emoticonid`为0时，表示更新此大头贴信息，当不传递`emoticonid`时，表示添加此用户的大头贴信息，另外多个`materialid`根据以下方式传递
+说明:当传递`emoticonid`为0时，表示添加此用户的大头贴信息，另外多个`materialid`根据以下方式传递,
+
+注意:adjustments数组长度必须和material_ids相同，如果没有形变，请留空
 
 参数:
 
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
 | logintoken     |String  |用户登录令牌识别码                    |*是 |
-| name           |String  |大头贴名称                           |*新增必传| 
-| gender         |Int     |大头贴性别                            |*新增必传| 
-| img_data        |String  |拼接好的大头贴图片（base64字符串）       |*新增必传|
-| base_roleid    |Int     |此大头贴的来源角色ID                   |*新增必传|
-| is_default      |true    |是否为默认大头贴                      |否|
-| material_ids    |JsonArray   |素材ID列表,[1,2,3,4]                           |*是 |
-| adjustments     |JsonArray   |素材变换列表.['1','2','3']                          |*是 |
+| name           |String  |大头贴名称                          |*新增必传|
+| gender         |Int     |大头贴性别                          |*新增必传|
+| img_data       |String  |拼接好的大头贴图片（base64字符串）         |*新增必传|
+| base_roleid    |Int     |此大头贴的来源角色ID                   |*新增必传, 无法修改|
+| is_default     |true    |是否为默认大头贴                      |否|
+| material_ids   |JsonArray   |素材ID列表,[1,2,3,4]           |否 |
+| adjustments    |JsonArray   |素材变换列表.['1','2','3']       |否 |
 
 返回值:
 ```json
 {
-    "id":111,
-    "name":"大头贴名称",
-    "img_url":"大头贴图片地址",
-    "is_default":"是否默认大头贴"
+    "Id":11, //然后可以根据Id来查询刚才更新的详细信息
 }
 ```
 
@@ -117,7 +125,7 @@ User Emoticons
 {}
 ```
 
-设置用户默认大头贴(暂时不需要，设置默认通过更新用户大头贴接口)
+(暂时不需要，设置默认通过更新用户大头贴接口)设置用户默认大头贴
 ----------------
 
 地址:`/user/emoticon/{emoticonid}/default`

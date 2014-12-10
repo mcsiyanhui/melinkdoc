@@ -55,9 +55,9 @@ Share
 | type         |int  |分享的类型，1为角色，2为大头贴，3为表情    |*是   |
 | share_base_id         |int  |根据分享类型不通，此字段为角色id，大头贴id，表情id    |*是   |
 | share_pwd         |String  |此分享是否需要密码才能使用，这里传入使用密码    |否   |
-| share_user_id         |String  |此分享只能指定的用户使用，这里传入这个人的用户id    |否   |
-| share_count         |String  |此分享最多使用多少次，这里传入使用次数    |否   |
-| share_expire         |String  |此分享过期时间，这里传入到期时间    |否   |
+| share_user_id        |String  |此分享只能指定的用户使用，这里传入这个人的用户id    |否   |
+| share_count          |int  |此分享最多使用多少次，这里传入最多使用次数    |否   |
+| share_expire         |int  |此分享过期时间，这里传入到期时间,到期时间以秒为单位的时间戳形式    |否   |
 
 
 返回值:
@@ -93,7 +93,7 @@ Share
 使用发布的一个分享
 ----------------
 
-地址:`/v1/{appid}/share/useshare/{shareToken}`
+地址:`/v1/share/useshare/{shareToken}`
 
 方法:`POST`
 
@@ -118,7 +118,7 @@ Share
 获取的一个分享详细信息
 ----------------
 
-地址:`/v1/{appid}/share/get/{shareToken}}`
+地址:`/v1/share/get/{shareToken}`
 
 方法:`GET`
 

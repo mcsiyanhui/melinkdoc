@@ -14,12 +14,12 @@ App接入
 ({appid}的获取方式,参考 **App接入** 部分) 
 测试API采用 `HTTP` 请求方式, 线上API只支持 `HTTPS`  
 
-若需要请求所有的大头贴素材分组,则在根路径下加上大头贴素材资源的子路径:   https://api.stampmeapp.com/{v1}/{appid}/materials/emoticons?group_only=true 
+若需要请求所有的大头贴素材分组,则在根路径下加上大头贴素材资源的子路径:   https://api.stampmeapp.com/{v1}/{appid}/materials/expression/group.json  
 
 如果是 `curl` 测试的话,完整的请求如下:  
 
 ```shell
-curl -u appid:appsecret -H 'User-Agent: MyApp (yourname@example.com)' https://api.stampmeapp.com/{v1}/{appid}/materials/emoticons?group_only=true 
+curl -u appid:appsecret -H 'User-Agent: MyApp (yourname@example.com)' https://api.stampmeapp.com/{v1}/{appid}/materials/expression/groups.json
 ```
 如果需要创建大头贴素材, 使用的是同一个资源，不同的是需要加上 `Content-Type` :  
 
@@ -28,7 +28,7 @@ curl -u appid:appsecret \
   -H 'Content-Type: Application/json' \
   -H 'User-Agent: MyApp (yourname@example.com)' \
   -d '{ "name": "配饰1" }' \
-  https://api.stampmeapp.com/{v1}/materials/emoticons?group_only=true 
+  https://api.stampmeapp.com/{v1}"/emoticons/groups.json
 ```
 
 数据格式
@@ -36,6 +36,7 @@ curl -u appid:appsecret \
 
 API仅支持`JSON`格式, 该`JSON`数据没有根元素, 其中的属性字段我们采用 `snake_case` 来描述  
 当对API使用 `POST` 和 `PUT` 方法时, 请在请求头部加入 `Content-Type: Application/json; charset=utf-8`  
+**所有的API请求以 .json 结尾,代表我们仅接受与返回JSON**  
 
 
 使用HTTP缓存  

@@ -16,7 +16,7 @@ Materials
 
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
-| group_only    |Boolean |如果为`true`,则只返回分组信息,如果为`false`则返回全部|*是 |
+| group_only    |int |如果为`1`,则只返回分组信息,如果为`0`则返回全部   |*是 |
 
 返回值:
 ```json
@@ -28,7 +28,7 @@ Materials
         "intro":"素材分组的简介",
         "icon_url":"素材分组的封面图片",
         "auto_version":"素材分组的版本号",
-        "type":3 //分组的类型,1表示角色分组,2表示大头贴分组,3表示角色和大头贴公用分组
+        'type':1,//分组的类型，1表示角色分组，2表示大头贴分组，3表示角色和大头贴公用分组
         "sort":1 //排序,越大排越前面
         "materials":[
             {
@@ -48,8 +48,8 @@ Materials
 按分组获取角色,大头贴素材
 ----------------
 
-地址:`/v1/{appid}/materials/role/group"/{groupid}`
-地址:`/v1/{appid}/materials/emoticon/group"/{groupid}`
+地址:`/v1/{appid}/materials/role/group/{groupid}`
+地址:`/v1/{appid}/materials/emoticon/group/{groupid}`
 
 方法:`GET`
 
@@ -59,7 +59,7 @@ Materials
 
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
-| auto_version   |String  |素材分组版本号                          |否 |
+| auto_version   |float  |素材分组版本号, 例如1.2，1.8等       |否 |
 
 返回值 - 无缓存:
 ```json
@@ -105,7 +105,7 @@ Materials
 
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
-| group_only    |Boolean |如果为`true`,则只返回分组信息,如果为`false`则返回全部|*是 |
+| group_only    |Boolean |如果为`1`,则只返回分组信息,如果为`0`则返回全部   |*是 |
 
 返回值:
 ```json
@@ -117,6 +117,7 @@ Materials
         "intro":"动态表情素材分组的简介",
         "icon_url":"动态表情素材分组的封面图片",
         "auto_version":"动态表情素材分组的版本号",
+        "type":3, //分组的类型,1表示角色分组,2表示大头贴分组,3表示角色和大头贴公用分组
         "sort":1 //排序,越大排越前面
         "facials":[
             {
@@ -135,7 +136,7 @@ Materials
 按分组获取动态表情素材
 ----------------
 
-地址:`/v1/{appid}/materials/expression/group"/{groupid}`
+地址:`/v1/{appid}/materials/expression/group/{groupid}`
 
 方法:`GET`
 

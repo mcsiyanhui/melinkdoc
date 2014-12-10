@@ -5,7 +5,7 @@ User Expressions
 获取用户动态表情列表
 ----------------
 
-地址:`/v1/{appid}/user/expressions"`
+地址:`/v1/{appid}/user/expressions`
 
 方法:`GET`
 
@@ -24,19 +24,25 @@ User Expressions
         "id":111,
         "name":"动态表情图片名称",
         "img_url":"动态表情图片地址",
-        "is_default":"是否默认动态表情"
+        "is_default":"是否默认动态表情",
+        "base_role_id":1,
+        "sort":11,
+        "update_time": "2014/12/02 17:01:44"
+        "write_time": "2014/12/02 16:58:58"
    }, //...
 ]
 ```
 
-新增用户动态表情
+
+
+获取用户表情详情
 ----------------
 
-地址:`/v1/{appid}/user/expression"/{expressionid}`
+地址:`/v1/{appid}/user/expression/{expressionid}`
 
-方法:`POST`
+方法:`GET`
 
-说明:动态表情为单向生成,暂不支持修改,expressionid 为0时，表示新增
+说明:此接口将返回某一个表情的详细关联信息
 
 参数:
 
@@ -46,20 +52,60 @@ User Expressions
 
 返回值:
 ```json
-[
-    {
-        "id":111,
-        "name":"动态表情图片名称",
-        "imgurl":"动态表情图片地址",
-        "is_default":"是否默认动态表情"
-   }, //...
-]
+{
+    "id":123,
+    "name":"表情名称",
+    "img_url":"表情图片地址",
+    "is_default":true,
+    "base_roleid":111 //此表情的来源角色ID
+    "sort":2, //排序
+    "update_time":"2014-11-28 17:01:47"//更新时间
+    "write_time":"2014-11-28 17:01:47"//创建时间
+    "facials":{
+       {
+            "id":111,
+            "ename":"唯一标识", // 这里后台可以录入客户端原来对于某一个素材唯一标识, 免去重复编码
+            "adjustment":{"zoom":100} //变形, 偏移, 缩放等
+       }, //...
+    }
+}
+```
+
+
+新增用户动态表情
+----------------
+
+地址:`/v1/{appid}/user/expression/{expressionid}`
+
+方法:`POST`
+
+说明:expressionid 为0时，表示新增
+
+参数:
+
+| 参数名称        |类型    |说明                              |是否必须|
+|:------------- |:-------|:--------------------------------|:-----|
+| logintoken     |String  |用户登录令牌识别码                    |*是 |
+| name           |String  |大头贴名称                          |*新增必传|
+| img_data       |String  |拼接好的大头贴图片（base64字符串）         |*新增必传|
+| base_roleid    |Int     |此大头贴的来源角色ID                   |*新增必传, 无法修改|
+| is_default     |int    |是否为默认大头贴,1是0不是                      |否|
+| facials_ids   |JsonArray   |素材ID列表,[1,2,3,4]           |否 |
+| adjustments    |JsonArray   |素材变换列表.['1','2','3']       |否 |
+
+
+返回值:
+```json
+ {
+ "id":11, //然后可以根据Id来查询刚才更新的详细信息
+ },
+
 ```
 
 删除用户动态表情
 ----------------
 
-地址:`/v1/{appid}/user/expression"/{expressionid}`
+地址:`/v1/{appid}/user/expression/{expressionid}`
 
 方法:`DELETE`
 

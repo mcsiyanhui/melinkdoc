@@ -133,7 +133,7 @@ User Basic
 获取密保问题
 ----------------
 
-地址:`/v1/{appid}/user/pwdquestions"`
+地址:`/v1/{appid}/user/forgot/pwdquestion"`
 
 方法:`GET`
 
@@ -168,8 +168,8 @@ User Basic
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
 | logintoken     |String  |用户登录令牌识别码                    |*是 |  
-| "provider"       |Enum    |第三方提供商 (QQ,微信,微博,Facebook等)|*是 |
-| "openid"         |String  |用户在第三方提供商的"openid"            |*是 |
+| provider       |Enum [qq,weibo,weixin]    |第三方提供商 (QQ,微信,微博,Facebook等)|*是 |
+| openid         |String  |用户在第三方提供商的"openid"            |*是 |
 | avatar    |String  |用户在第三方的头像      |否 |
 | nickname    |String  |用户在第三方的昵称      |否 |
 | accesstoken    |String  |用户在第三方提供商的Access Token      |否 |
