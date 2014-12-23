@@ -26,7 +26,7 @@ App 接入指南
 2.拼接字符串
 
     string str =
-    "appid123456"+"mobile1333333333"+"password123456"+"timestamp1417655951"+appsecret
+    "appid123456mobile1333333333password123456timestamp1417655951"+appsecret
 
 3.对生成的`str`进行`md5`哈希`string sign = toupper(md5(str))`
 

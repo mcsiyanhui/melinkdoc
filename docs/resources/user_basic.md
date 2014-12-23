@@ -18,8 +18,8 @@ User Basic
 | cellphone     |String  |用户手机号码                       |*见说明|
 | username      |String  |用户名                            |*见说明|
 | password      |String  |密码                              |*是   |
-| login_code1      |String  |登录推广标识1                     |否   |
-| login_code2      |String  |登录推广标识2                     |否   |
+| from1      |String  |登录推广来源标识1                     |否   |
+| from2      |String  |登录推广来源标识2                     |否   |
 
 返回值:  
 ```json
@@ -42,7 +42,7 @@ User Basic
 用户注册
 ----------------
 
-地址:`/v1/{appid}/user/register"`
+地址:`/v1/{appid}/user/register`
 
 方法:`POST`  
 
@@ -61,7 +61,8 @@ User Basic
 | nickname      |String  |用户昵称                           |否   |
 | gender        |Integer |0表示女性,1表示男性                 |否   |
 | email         |String  |用户邮箱                           |否   |
-| attributes    |String  |用户推广标识属性                    |否   |
+| from1         |String  |用户推广来源标识属性1                    |否   |
+| from2         |String  |用户推广来源标识属性2                    |否   |
 | pwd_question1  |String  |密保问题1                          |否   |
 | pwd_anwser1    |String  |密保问题答案1                      |否   |
 | pwd_question2  |String  |密保问题2                          |否   |
@@ -153,6 +154,44 @@ User Basic
      "pwd_question2":"pwdquestion2",
 }
 ```
+
+
+用户通过第三方账户登录
+----------------
+
+地址:`/v1/{appid}/user/sociallogin"`
+
+方法:`POST`
+
+说明:app应用先调用这个接口，当返回失败，再提示用户绑定或者注册表情me帐号，调用下面`绑定第三方账户`进行绑定操作
+
+参数:
+
+| 参数名称        |类型    |说明                              |是否必须|
+|:------------- |:-------|:--------------------------------|:-----|
+| provider       |Enum [qq,weibo,weixin]    |第三方提供商 (QQ,微信,微博,Facebook等)|*是 |
+| openid         |String  |用户在第三方提供商的"openid"            |*是 |
+| login_code1      |String  |登录推广标识1                     |否   |
+| login_code2      |String  |登录推广标识2                     |否   |
+
+返回值:
+```json
+{
+    "logintoken":"abcdefg", //以后可以通过loginToken参数来标识用户已经登录后的身份
+    "user_id":111,
+    "cellphone":"13333333333",
+    "isvalid_phone":"isvalidphone", //手机是否已经验证
+    "username":"username",
+    "nickname":"nickname",
+    "gender":0,
+    "email":"xxx@xxx.com",
+    "pwd_question1":"pwdQuestion1",//如果用户未设置,此处是null
+    "pwd_question2":"pwdQuestion2",//如果用户未设置,此处是null
+    "default_emoticon":"defaultavatar",//用户选择默认的大头贴
+    "isvalid_phone":true//用户是否绑定手机
+}
+```
+
 
 绑定第三方账户
 ----------------

@@ -16,33 +16,64 @@ Materials
 
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
-| group_only    |int |如果为`1`,则只返回分组信息,如果为`0`则返回全部   |*是 |
+| group_only    |int |如果为`1`,则只返回分组信息,如果为`0`则返回全部，默认为`0`   |否 |
 
 返回值:
 ```json
-[
-    {
-        "id":222, //素材分组的id
-        "name":"素材分组的名称",
-        "ename":"素材分组的英文短名称",
-        "intro":"素材分组的简介",
-        "icon_url":"素材分组的封面图片",
-        "auto_version":"素材分组的版本号",
-        'type':1,//分组的类型，1表示角色分组，2表示大头贴分组，3表示角色和大头贴公用分组
-        "sort":1 //排序,越大排越前面
-        "materials":[
+{
+        "male": [
             {
-                "id":333, //素材id
-                "ename":"素材的英文短命名",
-                "name":"素材的名称",
-                "img_url":"素材图片的地址",
-                "secondary_imgurl":"素材图片的备用地址",
-                "sort":1 //排序,越大排越前面
-            },// ...
-        ]
-    }, 
-    //...
-]
+                "auto_version": 1.0, //此分组版本号
+                "custom_key_value": "{}", //自定义kv字段，json格式字符串
+                "custom_tags": "[]", //自定义tag字段，json格式字符串
+                "ename": "此分组英文短名",
+                "gender": 1, //1表示男性
+                "groups": [
+                    {
+                        "auto_version": 1.0, //此分组版本号
+                        "custom_key_value": "{}", //自定义kv字段，json格式字符串
+                        "custom_tags": "[]", //自定义tag字段，json格式字符串
+                        "ename": "此分组英文短名",
+                        "gender": 1, //1表示男性
+                        "groups": [...],//支持嵌套，可能有N级
+                        "materials":[...],//省略此分组下的素材
+                        "icon_url": "分组图标地址",
+                        "id": 1,
+                        "intro": "分组简介",
+                        "name": "分组名称",
+                        "parent_group_id": 0,//父分组id
+                        "sort": 1, //排序
+                        "type": 1  //1表示角色使用，2表示大头贴使用，3表示通用
+
+                    }, ...//省略多个子分组
+                ],
+                "materials": [
+                        {
+                            "custom_key_value": "11",
+                            "custom_tags": "11",
+                            "ename": "aa1",
+                            "id": 1,
+                            "img_url": "11",
+                            "img_url_animation": "11",
+                            "img_url_static": "11",
+                            "is_animation": true,
+                            "name": "aa",
+                            "secondary_imgurl": "11",
+                            "sort": 1
+                        }, ...//省略此分组下的多个素材
+                ],
+                "icon_url": "分组图标地址",
+                "id": 1,
+                "intro": "分组简介",
+                "name": "分组名称",
+                "parent_group_id": 0,//父分组id
+                "sort": 1, //排序
+                "type": 1  //1表示角色使用，2表示大头贴使用，3表示通用
+
+            },...//省略顶级分组信息
+        ],
+    "female":[...] //省略女性同男性数据
+}
 ```
 
 按分组获取角色,大头贴素材
@@ -63,25 +94,53 @@ Materials
 
 返回值 - 无缓存:
 ```json
- {
-    "id":1111,//素材分组的id
-    "name":"素材分组的名称",
-    "ename":"素材分组的英文短名称",
-    "intro":"素材分组的简介",
-    "icon_url":"素材分组的封面图片",
-    "auto_version":"此素材分组的版本号",
-    "type":3, //分组的类型,1表示角色分组,2表示大头贴分组,3表示角色和大头贴公用分组
-    "sort":1 //排序,越大排越前面
-    "materials":[
-        {
-            "id":333, //素材的id
-            "ename":"素材的英文短名称",
-            "name":"素材名称",
-            "img_url":"素材封面图片地址",
-            "secondary_imgurl":"素材封面图片备用地址"
-            "sort":1 //排序,越大排越前面
-        }, //...
-    ]
+{
+        "auto_version": 1.0, //此分组版本号
+        "custom_key_value": "{}", //自定义kv字段，json格式字符串
+        "custom_tags": "[]", //自定义tag字段，json格式字符串
+        "ename": "此分组英文短名",
+        "gender": 1, //1表示男性
+        "groups": [
+            {
+                "auto_version": 1.0, //此分组版本号
+                "custom_key_value": "{}", //自定义kv字段，json格式字符串
+                "custom_tags": "[]", //自定义tag字段，json格式字符串
+                "ename": "此分组英文短名",
+                "gender": 1, //1表示男性
+                "groups": [...],//支持嵌套，可能有N级
+                "materials":[...],//省略此分组下的素材
+                "icon_url": "分组图标地址",
+                "id": 1,
+                "intro": "分组简介",
+                "name": "分组名称",
+                "parent_group_id": 0,//父分组id
+                "sort": 1, //排序
+                "type": 1  //1表示角色使用，2表示大头贴使用，3表示通用
+
+            }, ...//省略多个子分组
+        ],
+        "materials": [
+                {
+                    "custom_key_value": "11",
+                    "custom_tags": "11",
+                    "ename": "aa1",
+                    "id": 1,
+                    "img_url": "11",
+                    "img_url_animation": "11",
+                    "img_url_static": "11",
+                    "is_animation": true,
+                    "name": "aa",
+                    "secondary_imgurl": "11",
+                    "sort": 1
+                }, ...//省略此分组下的多个素材
+        ],
+        "icon_url": "分组图标地址",
+        "id": 1,
+        "intro": "分组简介",
+        "name": "分组名称",
+        "parent_group_id": 0,//父分组id
+        "sort": 1, //排序
+        "type": 1  //1表示角色使用，2表示大头贴使用，3表示通用
 }
 ```
 
@@ -105,7 +164,7 @@ Materials
 
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
-| group_only    |Boolean |如果为`1`,则只返回分组信息,如果为`0`则返回全部   |*是 |
+| group_only    |Boolean |如果为`1`,则只返回分组信息,如果为`0`则返回全部，默认为`0`   |否 |
 
 返回值:
 ```json
@@ -116,8 +175,11 @@ Materials
         "ename":"动态表情素材分组的英文短名称",
         "intro":"动态表情素材分组的简介",
         "icon_url":"动态表情素材分组的封面图片",
+        "gender":2, //0表示女性，1表示男性，2表示通用,目前动态表情素材没有分男女
+        "parent_group_id":0, //目前动态表情这个字段为0,分组没有嵌套
+        "custom_key_value":"{key:val}" //管理员自定义kv属性,json格式
+        "custom_tags":"['tag1', 'tag2']" //管理员自定义tag属性,json格式
         "auto_version":"动态表情素材分组的版本号",
-        "type":3, //分组的类型,1表示角色分组,2表示大头贴分组,3表示角色和大头贴公用分组
         "sort":1 //排序,越大排越前面
         "facials":[
             {
@@ -125,7 +187,12 @@ Materials
                 "ename":"动态表情素材的英文短名称",
                 "name":"动态表情素材名称",
                 "img_url":"动态表情素材图片地址",
-                "secondary_imgurl":"动态表情素材图片备用地址"
+                'img_url_static':"素材的静态图片地址",
+                'img_url_animation':"素材的动态图片地址",
+                "secondary_imgurl":"动态表情素材图片备用地址",
+                "is_animation":"是否是动画",
+                "custom_key_value":"{key:val}" //管理员自定义kv属性,json格式
+                "custom_tags":"['tag1', 'tag2']" //管理员自定义tag属性,json格式
                 "sort":1 //排序,越大排越前面
             }, ...
         ]
@@ -152,24 +219,33 @@ Materials
 返回值 - 无缓存:
 ```json
 {
-    "id":1111,//动态表情素材分组的id
-    "name":"动态表情素材分组的名称",
-    "ename":"动态表情素材分组的英文短名称",
-    "intro":"动态表情素材分组的简介",
-    "icon_url":"动态表情素材分组的图片",
-    "auto_version":"动态表情素材分组的版本号",
-    "sort":1 //排序,越大排越前面
-    "materials":[
-        {
-            "id":333（int）（动态表情素材的id）
-            "ename":"动态表情素材的英文短命名",
-            "name":"动态表情素材名称",
-            "img_url":"动态表情素材的图片地址",
-            "secondary_imgurl":"动态表情素材的备用图片地址"
-            "sort":1 //排序,越大排越前面
-        }, //...
-    ]
-}
+        "id":222, //动态表情素材分组的id
+        "name":"动态表情素材分组的名称",
+        "ename":"动态表情素材分组的英文短名称",
+        "intro":"动态表情素材分组的简介",
+        "icon_url":"动态表情素材分组的封面图片",
+        "gender":2, //0表示女性，1表示男性，2表示通用,目前动态表情素材没有分男女
+        "parent_group_id":0, //目前动态表情这个字段为0,分组没有嵌套
+        "custom_key_value":"{key:val}" //管理员自定义kv属性,json格式
+        "custom_tags":"['tag1', 'tag2']" //管理员自定义tag属性,json格式
+        "auto_version":"动态表情素材分组的版本号",
+        "sort":1 //排序,越大排越前面
+        "facials":[
+            {
+                "id":333 //动态表情素材ID
+                "ename":"动态表情素材的英文短名称",
+                "name":"动态表情素材名称",
+                "img_url":"动态表情素材图片地址",
+                'img_url_static':"素材的静态图片地址",
+                'img_url_animation':"素材的动态图片地址",
+                "secondary_imgurl":"动态表情素材图片备用地址",
+                "is_animation":"是否是动画",
+                "custom_key_value":"{key:val}" //管理员自定义kv属性,json格式
+                "custom_tags":"['tag1', 'tag2']" //管理员自定义tag属性,json格式
+                "sort":1 //排序,越大排越前面
+            }, ...
+        ]
+    }
 ```
 
 返回值 - 有缓存,版本号匹配
