@@ -7,7 +7,7 @@ nav-index: 9
 
 接口根路径
 ----------------
-**RootURL**: pageapi.domain.com/{v1}
+**RootURL**: pageapi.stampmeapp.com/{v1}
 
 登录
 ----------------

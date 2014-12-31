@@ -8,7 +8,7 @@ nav-index: 4
 获取用户角色
 ----------------
 
-地址:`/v1/{app_id}/user/roles"`
+地址:`/v1/{app_id}/user/roles`
 
 方法:`GET`
 
@@ -102,7 +102,7 @@ nav-index: 4
 返回值:
 {% highlight js %}
 {
-"id":11, //然后可以根据Id来查询刚才更新的详细信息
+"id":11 //然后可以根据id来查询刚才更新的详细信息
 }
 {% endhighlight %}
 

@@ -100,7 +100,7 @@ nav-index: 6
 返回值:
 {% highlight js %}
  {
- "id":11, //然后可以根据Id来查询刚才更新的详细信息
+ "id":11, //然后可以根据id来查询刚才更新的详细信息
  },
 
 {% endhighlight %}

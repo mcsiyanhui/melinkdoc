@@ -34,7 +34,7 @@ App向Server注册设备,获取app_id和appkey
 获取版本号
 ----------------
 
-地址:`/v1/{app_id}/app/version"`
+地址:`/v1/{app_id}/app/version`
 
 方法:`GET`
 

@@ -9,12 +9,12 @@ nav-index: 1
 接入步骤
 ----------------
 1. 启动App  
-2. App本地判断是否已经在`Server`端注册过, 如果没有注册过,则`Server`返回一个`app_id`和`appsecret`作为身份和加密串,如果无特殊说明`App`每次请求`Server`都必须带上这个`app_id`作为身份标识,另外还必须传输`timestamp`时间戳参数作为动态签名用,每次请求`Server`都将带有`sign`签名参数,`Server`根据`sign`来判断此`App`请求是否合法。
+2. App本地判断是否已经在`Server`端注册过, 如果没有注册过,则`Server`返回一个`app_id`和`app_secret`作为身份和加密串,如果无特殊说明`App`每次请求`Server`都必须在路径参数里带上`app_id`作为身份标识,另外`query`参数必须传输`timestamp`时间戳参数作为动态签名用,每次请求`Server`都将带有`sign`签名参数,`Server`根据`sign`来判断此`App`请求是否合法。
 
 `Sign`签名参数生成规则:  
 将所传递参数的key根据字典排序,然后将`key`和`value`字符串想加起来,将最终的字符串`md5`哈希得到`sign`签名  
 
-`timestamp`参数（以`秒`为单位的`Int`类型）：
+`timestamp`参数（以`毫秒`为单位的`Int`类型,时区为GMT格林威治时间）：
 为了防止重放攻击，客户端每次请求都需要带上`timestamp`参数，服务器会进行判断此参数是否在当前服务器时间前后10分钟范围内
 
 请求示例
@@ -22,14 +22,14 @@ nav-index: 1
 
 例如用户`post`登录接口,参数如下：
 
-    mobile=13333333333&password=123456&app_id=123456&timestamp=1417655951
+    mobile=13333333333&password=123456&timestamp=1417655951
 
-1.先根据字典将`key`排序,`app_id,mobile,password,timestamp`
+1.先根据字典将`key`排序,`mobile,password,timestamp`
 
 2.拼接字符串
 
     string str =
-    "app_id123456mobile1333333333password123456timestamp1417655951"+appsecret
+    "mobile1333333333password123456timestamp1417655951"+app_secret
 
 3.对生成的`str`进行`md5`哈希`string sign = toupper(md5(str))`
 
@@ -58,5 +58,5 @@ nav-index: 1
 特别说明
 ----------------
 
-后续文档中的返回值都表示响应成功里的`result`属性值,如没有特殊说明,接口写到的参数都为必传,并且都需要`sign`签名和`app_id`。
+后续文档中的返回值都表示响应成功里的`result`属性值,如没有特殊说明,接口写到的参数都为必传,并且都需要时间戳`timestamp`和签名`sign`。
 所有接口中传递的参数,请求`url`地址、请求参数key和返回值的`key`都约定为纯小写。

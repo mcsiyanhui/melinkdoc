@@ -114,7 +114,7 @@ nav-index: 5
 
 方法:`DELETE`
 
-说明:emoticonid,In,大头贴ID
+说明:emoticonid,Int,大头贴ID
 
 参数:
 

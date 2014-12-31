@@ -243,20 +243,20 @@ nav-index: 3
     {
         "provider":"weixin",//(枚举字符串,'weixin', 'qq', 'weibo')
         "openid":"openid",
-        'avatar':'avatar',
-        'nickname':'nickname',
+        "avatar":"avatar",
+        "nickname':"nickname"
     },
     {
         "provider":"qq",//(枚举字符串,'weixin', 'qq', 'weibo')
         "openid":"openid",
-        'avatar':'avatar',
-        'nickname':'nickname',
+        "avatar":"avatar",
+        "nickname':'nickname"
     },
     {
         "provider":"weibo",//(枚举字符串,'weixin', 'qq', 'weibo')
         "openid":"openid",
-        'avatar':'avatar',
-        'nickname':'nickname',
+        "avatar":"avatar",
+        "nickname":"nickname"
     }
 ]
 {% endhighlight %}
@@ -314,7 +314,7 @@ nav-index: 3
 {
     "nickname":"nickname",
     "gender":0,
-    "email":"xxx@xxx.com",
+    "email":"xxx@xxx.com"
 }
 {% endhighlight %}
 
@@ -343,7 +343,7 @@ nav-index: 3
 验证密保问题
 ----------------
 
-地址:`/v1/{app_id}/user/pwdquestion/validate"`
+地址:`/v1/{app_id}/user/pwdquestion/validate`
 
 方法:`POST`
 
@@ -365,7 +365,7 @@ nav-index: 3
 修改密保问题
 ----------------
 
-地址:`/v1/{app_id}/user/pwdquestion/update"`
+地址:`/v1/{app_id}/user/pwdquestion/update`
 
 方法:`POST`
 
@@ -391,7 +391,7 @@ nav-index: 3
 修改密码
 ----------------
 
-地址:`/v1/{app_id}/user/changepassword"`
+地址:`/v1/{app_id}/user/changepassword`
 
 方法:`POST`
 
@@ -413,7 +413,7 @@ nav-index: 3
 获取用户留言列表
 ----------------
 
-地址:`/v1/{app_id}/user/messages"`
+地址:`/v1/{app_id}/user/messages`
 
 方法:`GET`
 
@@ -434,7 +434,7 @@ nav-index: 3
         "message":"能否多几套动态表情供选择呢",
         "reply":"我们已经接受采纳,新版本会新增2套全新动态表情,谢谢反馈",
         "write_time":"2014/11/22 11:11",
-        "update_time":"2014/11/22 11:11",
+        "update_time":"2014/11/22 11:11"
     }
     // ... 
 ]
@@ -443,7 +443,7 @@ nav-index: 3
 用户留言
 ----------------
 
-地址:`/user/message"`
+地址:`/user/message`
 
 方法:`POST`
 

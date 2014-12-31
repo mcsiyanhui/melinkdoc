@@ -7,7 +7,7 @@ nav-index: 8
 
 接口根路径
 ----------------
-**RootURL**: openapi.domain.com/{v1}
+**RootURL**: openapi.stampmeapp.com/{v1}
 
 获取用户默认角色
 ----------------
