@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      分享接口 &middot; me link
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-0d sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>表情me link API(简称me link)是由上海似颜绘科技有限公司开发的国内首款在线卡通形象与动态表情定制接口平台.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/">概述</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/app/link/">App接入指南</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/app/auth/">App认证授权接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/basic/">用户基本接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/roles/">用户角色接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/emoticons/">用户大头贴接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/expressions/">用户动态表情接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/materials/">素材接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/open/">开放接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/page/">页面接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/share/">分享接口</a>
+        
+      
+    
+      
+    <span class="sidebar-nav-item">当前版本 v0.5.9</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy;上海似颜绘科技 2014.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">me link</a>
+            <small>API文档</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">分享接口</h1>
+  <p>分享的相关接口</p>
+
+<h2 id="获取我的分享">获取我的分享</h2>
+
+<p>用户在表情meapp里分享</p>
+
+<p>地址: <code>/v1/{appid}/share/myshare&quot;</code></p>
+
+<p>方法: <code>GET</code></p>
+
+<p>说明: 用户登录后，获取他的最近100个分享</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">logintoken</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">用户登录令牌识别码</td>
+<td style="text-align: left">*是</td>
+</tr>
+</tbody></table>
+
+<p>返回值:
+<code>json
+[
+    {
+        &quot;sharetoken&#39;:&#39;分享的token&#39;,
+        &quot;share_base_id&#39;:&#39;分享根据id&#39;,
+        &quot;type&#39;:&#39;分享的类型&#39;,
+        &quot;is_share_pwd&#39;:&#39;此分享是否需要密码才能使用&#39;,
+        &quot;share_user_id&#39;:&#39;此分享只能指定的用户使用&#39;,
+        &quot;share_count&#39;:&#39;此分享最多使用多少次&#39;,
+        &quot;used_count&#39;:&#39;此分享已经被多少人使用过了&#39;,
+        &quot;share_expire&#39;:&#39;此分享过期时间&#39;,
+        &quot;write_time&#39;: &#39;分享的创建时间&#39;,
+        &quot;img_url&quot;:&quot;分享出去的图片url地址&quot;,
+    },
+    ...
+]
+</code></p>
+
+<h2 id="发布一个新的分享">发布一个新的分享</h2>
+
+<p>地址:<code>/v1/{appid}/share/myshare&quot;</code></p>
+
+<p>方法:<code>POST</code></p>
+
+<p>说明: 在表情meapp里，分享出去一个新的</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">logintoken</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">用户登录令牌识别码</td>
+<td style="text-align: left">*是</td>
+</tr>
+<tr>
+<td style="text-align: left">type</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">分享的类型，1为角色，2为大头贴，3为表情</td>
+<td style="text-align: left">*是</td>
+</tr>
+<tr>
+<td style="text-align: left">share_base_id</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">根据分享类型不通，此字段为角色id，大头贴id，表情id</td>
+<td style="text-align: left">*是</td>
+</tr>
+<tr>
+<td style="text-align: left">share_pwd</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">此分享是否需要密码才能使用，这里传入使用密码</td>
+<td style="text-align: left">否</td>
+</tr>
+<tr>
+<td style="text-align: left">share_user_id</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">此分享只能指定的用户使用，这里传入这个人的用户id</td>
+<td style="text-align: left">否</td>
+</tr>
+<tr>
+<td style="text-align: left">share_count</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">此分享最多使用多少次，这里传入最多使用次数</td>
+<td style="text-align: left">否</td>
+</tr>
+<tr>
+<td style="text-align: left">share_expire</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">此分享过期时间，这里传入到期时间,到期时间以秒为单位的时间戳形式</td>
+<td style="text-align: left">否</td>
+</tr>
+</tbody></table>
+
+<p>返回值:
+<code>json
+{
+    &quot;sharetoken&quot;:&quot;新增分享的token的md5值&quot;
+    &quot;share_url&quot; : &quot;分享出去的落地页url地址&quot;
+}
+</code></p>
+
+<h2 id="删除我发布的一个分享">删除我发布的一个分享</h2>
+
+<p>地址:<code>/v1/{appid}/share/myshare&quot;</code></p>
+
+<p>方法:<code>DELETE</code></p>
+
+<p>说明:需要签名</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">url参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">logintoken</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">用户登录令牌识别码</td>
+<td style="text-align: left">*是</td>
+</tr>
+<tr>
+<td style="text-align: left">sharetoken</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">删除我的分享token</td>
+<td style="text-align: left">*是</td>
+</tr>
+</tbody></table>
+
+<p>返回值:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{}
+</code></pre></div>
+<h2 id="使用发布的一个分享">使用发布的一个分享</h2>
+
+<p>地址:<code>/v1/share/useshare/{shareToken}</code></p>
+
+<p>方法:<code>POST</code></p>
+
+<p>说明: 不需要签名，需要登录</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">url参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">logintoken</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">用户登录令牌识别码</td>
+<td style="text-align: left">*是</td>
+</tr>
+<tr>
+<td style="text-align: left">share_pwd</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">此分享是否需要密码才能使用，这里传入使用密码</td>
+<td style="text-align: left">否</td>
+</tr>
+<tr>
+<td style="text-align: left">from1</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">用户通过什么渠道获得的此分享，这里可以传入 weixin,qq等</td>
+<td style="text-align: left">否</td>
+</tr>
+<tr>
+<td style="text-align: left">from2</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">用户通过什么渠道获得的此分享，这里可以传入 weixin,qq等</td>
+<td style="text-align: left">否</td>
+</tr>
+</tbody></table>
+
+<p>返回值:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{}
+</code></pre></div>
+<h2 id="获取的一个分享详细信息">获取的一个分享详细信息</h2>
+
+<p>地址:<code>/v1/share/get/{shareToken}</code></p>
+
+<p>方法:<code>GET</code></p>
+
+<p>说明: 不需要签名，不需要登录，给page页面使用展现</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">url参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>返回值:
+<code>json
+    {
+        &quot;sharetoken&#39;:&#39;分享的token&#39;,
+        &quot;share_base_id&#39;:&#39;分享根据id&#39;,
+        &quot;type&#39;:&#39;分享的类型&#39;,
+        &quot;is_share_pwd&#39;:&#39;此分享是否需要密码才能使用&#39;,
+        &quot;share_user_id&#39;:&#39;此分享只能指定的用户使用&#39;,
+        &quot;share_count&#39;:&#39;此分享最多使用多少次&#39;,
+        &quot;used_count&#39;:&#39;此分享已经被多少人使用过了&#39;,
+        &quot;share_expire&#39;:&#39;此分享过期时间&#39;,
+        &quot;write_time&#39;: &#39;分享的创建时间&#39;,
+        &quot;img_url&quot;:&quot;分享出去的图片url地址&quot;,
+    },
+    ...
+</code></p>
+
+</div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

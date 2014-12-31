@@ -10,7 +10,7 @@
 
   <title>
     
-      概述 &middot; me link
+      页面接口 &middot; me link
     
   </title>
 
@@ -55,7 +55,7 @@
     
       
         
-          <a class="sidebar-nav-item active" href="/">概述</a>
+          <a class="sidebar-nav-item" href="/">概述</a>
         
       
     
@@ -109,7 +109,7 @@
     
       
         
-          <a class="sidebar-nav-item" href="/page/">页面接口</a>
+          <a class="sidebar-nav-item active" href="/page/">页面接口</a>
         
       
     
@@ -147,52 +147,59 @@
 
       <div class="container content">
         <div class="page">
-  <h1 class="page-title">概述</h1>
-  <h2 id="app接入">App接入</h2>
+  <h1 class="page-title">页面接口</h1>
+  <p>页面接入接口</p>
 
-<ul>
-<li>参考<a href="/app/link/">App接入指南</a></li>
-</ul>
+<h2 id="接口根路径">接口根路径</h2>
 
-<h2 id="发起api请求">发起API请求</h2>
+<p><strong>RootURL</strong>: pageapi.domain.com/{v1}</p>
 
-<p><strong>API根路径</strong> - <code>https://api.stampmeapp.com/{v1}/{appid}</code>, 其中 <code>/{v1}</code> 为API版本号, <code>{appid}</code> 为设备的APPID
-({appid}的获取方式,参考 <strong>App接入</strong> 部分) 
-测试API采用 <code>HTTP</code> 请求方式, 线上API只支持 <code>HTTPS</code>  </p>
+<h2 id="登录">登录</h2>
 
-<p>若需要请求所有的大头贴素材分组,则在根路径下加上大头贴素材资源的子路径:   <a href="https://api.stampmeapp.com/%7Bv1%7D/%7Bappid%7D/materials/emoticons">https://api.stampmeapp.com/{v1}/{appid}/materials/emoticons</a></p>
+<p>地址:<code>/v1/{appid}/login</code></p>
 
-<p>具体请参考 <a href="/app/link/">App接入指南</a></p>
+<p>方法:<code>GET</code></p>
 
-<h2 id="数据格式">数据格式</h2>
+<p>说明:<code>webview</code>打开此页面，将提供一个网页版本的登录表情me界面，同时界面上会有qq、微信和微博的第三方登录功能，还有注册。
+app可以监听url地址中是否含有<code>logintoken</code>，当有<code>logintoken参数</code>时，表示用户用户登录注册成功，这时候就可以获取<code>logintoken</code>参数来获取此用户的信息了</p>
 
-<p>API仅支持<code>JSON</code>格式, 该<code>JSON</code>数据没有根元素, 其中的属性字段我们采用 <code>snake_case</code> 来描述<br>
-当对API使用 <code>POST</code> 和 <code>PUT</code> 方法时, 请在请求头部加入 <code>Content-Type: Application/json; charset=utf-8</code>  </p>
+<p>参数:</p>
 
-<h2 id="错误处理">错误处理</h2>
+<table><thead>
+<tr>
+<th style="text-align: left">参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">callback_url</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">登录或者注册成功之后的回调地址,返回会带上<code>logintoken</code>参数到该地址</td>
+<td style="text-align: left">否</td>
+</tr>
+</tbody></table>
 
-<p>当API服务器遇到问题时,你会看到 5xx 的错误反馈, 举例如下:  </p>
+<p>返回值:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text"> 网页登录表情me
+</code></pre></div>
+<h2 id="绑定第三方id">绑定第三方ID</h2>
 
-<ul>
-<li><code>500 API Server Down</code><br></li>
-<li><code>502 Bad Gateway</code><br></li>
-<li><code>503 Service Unavailable</code><br></li>
-<li><code>504 Gateway Timeout</code><br></li>
-</ul>
+<p>地址:<code>/socialbind</code></p>
 
-<h2 id="可用api列表">可用API列表</h2>
+<p>方法:<code>GET</code></p>
 
-<ul>
-<li><a href="/app/auth/">Auth</a> - App认证授权相关接口</li>
-<li><a href="/user/basic/">User Basic</a> - 用户基本接口</li>
-<li><a href="/user/roles/">User Roles</a> - 用户角色相关接口</li>
-<li><a href="/user/emoticons/">User Emoticons</a> - 用户大头贴相关接口</li>
-<li><a href="/user/expressions/">User Expressions</a> - 用户动态表情相关接口</li>
-<li><a href="/materials/">Materials</a> - 分组与素材相关接口(Me App专用)</li>
-<li><a href="/open/">Open</a> - 对外开放数据接口</li>
-<li><a href="/page/">Page</a> - 页面接入接口</li>
-<li><a href="/share/">Share</a> - 分享接口</li>
-</ul>
+<p>说明:当用户第一次使用第三方账号登录到表情me时，需要绑定一下表情me的帐号，此页面提供新帐号注册绑定和老帐号登录绑定</p>
+
+<h2 id="授权默认回调">授权默认回调</h2>
+
+<p>地址:<code>/oob</code></p>
+
+<p>方法:<code>GET</code></p>
+
+<p>说明:用户授权登录，或者注册成功，或者老用户登录成功之后，如果没有传递<code>callback_url</code>会默认跳转到此页面，并且会带上参数<code>logintoken</code>。
+<code>logintoken</code>用来给app获取，并标识用户</p>
 
 </div>
 

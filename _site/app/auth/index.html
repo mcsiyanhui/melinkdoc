@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      App认证授权接口 &middot; me link
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-0d sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>表情me link API(简称me link)是由上海似颜绘科技有限公司开发的国内首款在线卡通形象与动态表情定制接口平台.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/">概述</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/app/link/">App接入指南</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/app/auth/">App认证授权接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/basic/">用户基本接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/roles/">用户角色接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/emoticons/">用户大头贴接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/expressions/">用户动态表情接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/materials/">素材接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/open/">开放接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/page/">页面接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/share/">分享接口</a>
+        
+      
+    
+      
+    <span class="sidebar-nav-item">当前版本 v0.5.9</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy;上海似颜绘科技 2014.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">me link</a>
+            <small>API文档</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">App认证授权接口</h1>
+  <p>App认证授权相关接口</p>
+
+<h2 id="设备注册">设备注册</h2>
+
+<p>App向Server注册设备,获取appid和appkey</p>
+
+<p>地址: <code>/v1/app/register</code></p>
+
+<p>方法: <code>GET</code></p>
+
+<p>说明: 不需要<code>sign</code>签名,不需要传<code>appid</code>,<code>sign</code>,<code>timestamp</code>参数</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ename</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">平台将根据ename来判断是否此应用授权接入</td>
+<td style="text-align: left">*是</td>
+</tr>
+<tr>
+<td style="text-align: left">primary_from</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">此App主要安装推广标识</td>
+<td style="text-align: left">否</td>
+</tr>
+<tr>
+<td style="text-align: left">secondary_from</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">此App次要安装推广标识</td>
+<td style="text-align: left">否</td>
+</tr>
+</tbody></table>
+
+<p>返回值:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&quot;app_id&quot;</span><span class="o">:</span><span class="s2">&quot;123456&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;app_secret&quot;</span><span class="o">:</span><span class="s2">&quot;123456&quot;</span>
+<span class="p">}</span></code></pre></div>
+
+<h2 id="获取版本号">获取版本号</h2>
+
+<p>地址:<code>/v1/{appid}/app/version&quot;</code></p>
+
+<p>方法:<code>GET</code></p>
+
+<p>说明: 不需要<code>sign</code>签名,不需要传<code>sign</code>,<code>timestamp</code>参数</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">ename</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">平台将根据ename来识别接入应用</td>
+<td style="text-align: left">*是</td>
+</tr>
+</tbody></table>
+
+<p>返回值:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&quot;intro&quot;</span><span class="o">:</span><span class="s2">&quot;app介绍&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;apple_version&quot;</span><span class="o">:</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;android_version&quot;</span><span class="o">:</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;android_version2&quot;</span><span class="o">:</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;force_vpdate&quot;</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;ios_update_url&quot;</span><span class="o">:</span><span class="s2">&quot;http://www.baidu.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;android_update_url&quot;</span><span class="o">:</span><span class="s2">&quot;http://www.baidu.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cover_img&quot;</span><span class="o">:</span><span class="s2">&quot;http://www.baidu.com&quot;</span><span class="p">,</span>  <span class="c1">//启动页面url地址</span>
+    <span class="s2">&quot;weibo_url&quot;</span><span class="o">:</span><span class="s2">&quot;http://www.baidu.com&quot;</span><span class="p">,</span>  <span class="c1">//微博的推广地址</span>
+    <span class="s2">&quot;weixin_url&quot;</span><span class="o">:</span><span class="s2">&quot;http://www.baidu.com&quot;</span><span class="p">,</span> <span class="c1">//微信的推广地址</span>
+<span class="p">}</span></code></pre></div>
+
+<h2 id="获取手机验证码">获取手机验证码</h2>
+
+<p>地址:<code>/v1/{appid}/app/sms/{mobile}</code></p>
+
+<p>方法:<code>GET</code></p>
+
+<p>说明:需要签名</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">url参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">mobile</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">需要获取验证码的手机号码</td>
+<td style="text-align: left">*是</td>
+</tr>
+</tbody></table>
+
+<p>返回值:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{}
+</code></pre></div>
+</div>
+
+      </div>
+    </div>
+
+  </body>
+</html>
