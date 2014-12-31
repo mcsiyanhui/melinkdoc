@@ -8,7 +8,7 @@ nav-index: 3
 用户登录
 ----------------
 
-地址:`/v1/{app_id}/user/login"`
+地址:`/v1/{app_id}/user/login`
 
 方法:`POST`  
 
@@ -91,7 +91,7 @@ nav-index: 3
 手机找回密码
 ----------------
 
-地址:`/v1/{app_id}/user/forgot/cellphone"`
+地址:`/v1/{app_id}/user/forgot/cellphone`
 
 方法:`POST`
 
@@ -137,7 +137,7 @@ nav-index: 3
 获取密保问题
 ----------------
 
-地址:`/v1/{app_id}/user/forgot/pwdquestion"`
+地址:`/v1/{app_id}/user/forgot/pwdquestion`
 
 方法:`GET`
 
@@ -162,7 +162,7 @@ nav-index: 3
 用户通过第三方账户登录
 ----------------
 
-地址:`/v1/{app_id}/user/sociallogin"`
+地址:`/v1/{app_id}/user/sociallogin`
 
 方法:`POST`
 
@@ -199,7 +199,7 @@ nav-index: 3
 绑定第三方账户
 ----------------
 
-地址:`/v1/{app_id}/user/socialbind"`
+地址:`/v1/{app_id}/user/socialbind`
 
 方法:`POST`
 
@@ -225,7 +225,7 @@ nav-index: 3
 获取已绑定第三方账户列表
 ----------------
 
-地址:`/v1/{app_id}/user/socialbind"`
+地址:`/v1/{app_id}/user/socialbind`
 
 方法:`GET`
 
@@ -244,13 +244,13 @@ nav-index: 3
         "provider":"weixin",//(枚举字符串,'weixin', 'qq', 'weibo')
         "openid":"openid",
         "avatar":"avatar",
-        "nickname':"nickname"
+        "nickname":"nickname"
     },
     {
         "provider":"qq",//(枚举字符串,'weixin', 'qq', 'weibo')
         "openid":"openid",
         "avatar":"avatar",
-        "nickname':'nickname"
+        "nickname":"nickname"
     },
     {
         "provider":"weibo",//(枚举字符串,'weixin', 'qq', 'weibo')
@@ -264,7 +264,7 @@ nav-index: 3
 获取详细信息
 ----------------
 
-地址:`/v1/{app_id}/user/profile"`
+地址:`/v1/{app_id}/user/profile`
 
 方法:`GET`
 
