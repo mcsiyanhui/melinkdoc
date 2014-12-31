@@ -34,7 +34,7 @@ nav-index: 10
         "share_count":"此分享最多使用多少次",
         "used_count":"此分享已经被多少人使用过了",
         "share_expire":"此分享过期时间",
-        "write_time': '分享的创建时间",
+        "write_time":"分享的创建时间",
         "img_url":"分享出去的图片url地址"
     }
     //...
@@ -67,7 +67,7 @@ nav-index: 10
 {% highlight js %}
 {
     "sharetoken":"新增分享的token的md5值",
-    "share_url" : "分享出去的落地页url地址"
+    "share_url":"分享出去的落地页url地址"
 }
 {% endhighlight %}
 
@@ -144,7 +144,7 @@ nav-index: 10
         "share_count":"此分享最多使用多少次",
         "used_count":"此分享已经被多少人使用过了",
         "share_expire":"此分享过期时间",
-        "write_time': '分享的创建时间",
+        "write_time":"分享的创建时间",
         "img_url":"分享出去的图片url地址"
     }
     //...
