@@ -9,7 +9,7 @@ nav-index: 10
 ----------------
 用户在表情meapp里分享
 
-地址: `/v1/{app_id}/share/myshare"`
+地址: `/v1/{app_id}/share/myshare`
 
 方法: `GET`
 
@@ -26,25 +26,25 @@ nav-index: 10
 {% highlight js %}
 [
     {
-        "sharetoken':'分享的token',
-        "share_base_id':'分享根据id',
-        "type':'分享的类型',
-        "is_share_pwd':'此分享是否需要密码才能使用',
-        "share_user_id':'此分享只能指定的用户使用',
-        "share_count':'此分享最多使用多少次',
-        "used_count':'此分享已经被多少人使用过了',
-        "share_expire':'此分享过期时间',
-        "write_time': '分享的创建时间',
-        "img_url":"分享出去的图片url地址",
-    },
-    ...
+        "sharetoken":"分享的token",
+        "share_base_id":"分享根据id",
+        "type":"分享的类型",
+        "is_share_pwd":"此分享是否需要密码才能使用",
+        "share_user_id":"此分享只能指定的用户使用",
+        "share_count":"此分享最多使用多少次",
+        "used_count":"此分享已经被多少人使用过了",
+        "share_expire":"此分享过期时间",
+        "write_time': '分享的创建时间",
+        "img_url":"分享出去的图片url地址"
+    }
+    //...
 ]
 {% endhighlight %}
 
 发布一个新的分享
 ----------------
 
-地址:`/v1/{app_id}/share/myshare"`
+地址:`/v1/{app_id}/share/myshare`
 
 方法:`POST`
 
@@ -66,7 +66,7 @@ nav-index: 10
 返回值:
 {% highlight js %}
 {
-    "sharetoken":"新增分享的token的md5值"
+    "sharetoken":"新增分享的token的md5值",
     "share_url" : "分享出去的落地页url地址"
 }
 {% endhighlight %}
@@ -136,17 +136,17 @@ nav-index: 10
 返回值:
 {% highlight js %}
     {
-        "sharetoken':'分享的token',
-        "share_base_id':'分享根据id',
-        "type':'分享的类型',
-        "is_share_pwd':'此分享是否需要密码才能使用',
-        "share_user_id':'此分享只能指定的用户使用',
-        "share_count':'此分享最多使用多少次',
-        "used_count':'此分享已经被多少人使用过了',
-        "share_expire':'此分享过期时间',
-        "write_time': '分享的创建时间',
-        "img_url":"分享出去的图片url地址",
-    },
-    ...
+        "sharetoken":"分享的token",
+        "share_base_id":"分享根据id",
+        "type":"分享的类型",
+        "is_share_pwd":"此分享是否需要密码才能使用",
+        "share_user_id":"此分享只能指定的用户使用",
+        "share_count":"此分享最多使用多少次",
+        "used_count":"此分享已经被多少人使用过了",
+        "share_expire":"此分享过期时间",
+        "write_time': '分享的创建时间",
+        "img_url":"分享出去的图片url地址"
+    }
+    //...
 {% endhighlight %}
 
