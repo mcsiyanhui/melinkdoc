@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      用户动态表情接口 &middot; me link
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-0d sidebar-overlay">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>表情me link API(简称me link)是由上海似颜绘科技有限公司开发的国内首款在线卡通形象与动态表情定制接口平台.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/">概述</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/app/link/">App接入指南</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/app/auth/">App认证授权接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/basic/">用户基本接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/roles/">用户角色接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/user/emoticons/">用户大头贴接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/user/expressions/">用户动态表情接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/materials/">素材接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/open/">开放接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/page/">页面接口</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/share/">分享接口</a>
+        
+      
+    
+      
+    <span class="sidebar-nav-item">当前版本 v0.5.9</span>
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy;上海似颜绘科技 2014.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">me link</a>
+            <small>API文档</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="page">
+  <h1 class="page-title">用户动态表情接口</h1>
+  <p>用户动态表情相关接口 - *表情me App专用</p>
+
+<h2 id="获取用户动态表情列表">获取用户动态表情列表</h2>
+
+<p>地址:<code>/v1/{appid}/user/expressions</code></p>
+
+<p>方法:<code>GET</code></p>
+
+<p>说明:无</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">logintoken</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">用户登录令牌识别码</td>
+<td style="text-align: left">*是</td>
+</tr>
+</tbody></table>
+
+<p>返回值:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">111</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;动态表情图片名称&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;img_url&quot;</span><span class="o">:</span><span class="s2">&quot;动态表情图片地址&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;is_default&quot;</span><span class="o">:</span><span class="s2">&quot;是否默认动态表情&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;base_role_id&quot;</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;sort&quot;</span><span class="o">:</span><span class="mi">11</span><span class="p">,</span>
+        <span class="s2">&quot;update_time&quot;</span><span class="o">:</span> <span class="s2">&quot;2014/12/02 17:01:44&quot;</span>
+        <span class="s2">&quot;write_time&quot;</span><span class="o">:</span> <span class="s2">&quot;2014/12/02 16:58:58&quot;</span>
+   <span class="p">},</span> <span class="c1">//...</span>
+<span class="p">]</span></code></pre></div>
+
+<h2 id="获取用户表情详情">获取用户表情详情</h2>
+
+<p>地址:<code>/v1/{appid}/user/expression/{expressionid}</code></p>
+
+<p>方法:<code>GET</code></p>
+
+<p>说明:此接口将返回某一个表情的详细关联信息</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">logintoken</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">用户登录令牌识别码</td>
+<td style="text-align: left">*是</td>
+</tr>
+</tbody></table>
+
+<p>返回值:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">123</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;表情名称&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;img_url&quot;</span><span class="o">:</span><span class="s2">&quot;表情图片地址&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_default&quot;</span><span class="o">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;base_roleid&quot;</span><span class="o">:</span><span class="mi">111</span> <span class="c1">//此表情的来源角色ID</span>
+    <span class="s2">&quot;sort&quot;</span><span class="o">:</span><span class="mi">2</span><span class="p">,</span> <span class="c1">//排序</span>
+    <span class="s2">&quot;update_time&quot;</span><span class="o">:</span><span class="s2">&quot;2014-11-28 17:01:47&quot;</span><span class="c1">//更新时间</span>
+    <span class="s2">&quot;write_time&quot;</span><span class="o">:</span><span class="s2">&quot;2014-11-28 17:01:47&quot;</span><span class="c1">//创建时间</span>
+    <span class="s2">&quot;facials&quot;</span><span class="o">:</span><span class="p">{</span>
+       <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">111</span><span class="p">,</span>
+            <span class="s2">&quot;ename&quot;</span><span class="o">:</span><span class="s2">&quot;唯一标识&quot;</span><span class="p">,</span> <span class="c1">// 这里后台可以录入客户端原来对于某一个素材唯一标识, 免去重复编码</span>
+            <span class="s2">&quot;adjustment&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;zoom&quot;</span><span class="o">:</span><span class="mi">100</span><span class="p">}</span> <span class="c1">//变形, 偏移, 缩放等</span>
+       <span class="p">},</span> <span class="c1">//...</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+
+<h2 id="新增用户动态表情">新增用户动态表情</h2>
+
+<p>地址:<code>/v1/{appid}/user/expression/{expressionid}</code></p>
+
+<p>方法:<code>POST</code></p>
+
+<p>说明:expressionid 为0时，表示新增</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">logintoken</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">用户登录令牌识别码</td>
+<td style="text-align: left">*是</td>
+</tr>
+<tr>
+<td style="text-align: left">name</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">大头贴名称</td>
+<td style="text-align: left">*新增必传</td>
+</tr>
+<tr>
+<td style="text-align: left">img_data</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">拼接好的大头贴图片（base64字符串）</td>
+<td style="text-align: left">*新增必传</td>
+</tr>
+<tr>
+<td style="text-align: left">base_roleid</td>
+<td style="text-align: left">Int</td>
+<td style="text-align: left">此大头贴的来源角色ID</td>
+<td style="text-align: left">*新增必传, 无法修改</td>
+</tr>
+<tr>
+<td style="text-align: left">is_default</td>
+<td style="text-align: left">int</td>
+<td style="text-align: left">是否为默认大头贴,1是0不是</td>
+<td style="text-align: left">否</td>
+</tr>
+<tr>
+<td style="text-align: left">facials_ids</td>
+<td style="text-align: left">JsonArray</td>
+<td style="text-align: left">素材ID列表,[1,2,3,4]</td>
+<td style="text-align: left">否</td>
+</tr>
+<tr>
+<td style="text-align: left">adjustments</td>
+<td style="text-align: left">JsonArray</td>
+<td style="text-align: left">素材变换列表.[&#39;1&#39;,&#39;2&#39;,&#39;3&#39;]</td>
+<td style="text-align: left">否</td>
+</tr>
+</tbody></table>
+
+<p>返回值:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{</span>
+ <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">11</span><span class="p">,</span> <span class="c1">//然后可以根据Id来查询刚才更新的详细信息</span>
+ <span class="p">},</span></code></pre></div>
+
+<h2 id="删除用户动态表情">删除用户动态表情</h2>
+
+<p>地址:<code>/v1/{appid}/user/expression/{expressionid}</code></p>
+
+<p>方法:<code>DELETE</code></p>
+
+<p>说明:动态表情生成过程比较容易,删除无需<code>name</code>参数确认</p>
+
+<p>参数:</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">参数名称</th>
+<th style="text-align: left">类型</th>
+<th style="text-align: left">说明</th>
+<th style="text-align: left">是否必须</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">logintoken</td>
+<td style="text-align: left">String</td>
+<td style="text-align: left">用户登录令牌识别码</td>
+<td style="text-align: left">*是</td>
+</tr>
+</tbody></table>
+
+<p>返回值:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">{}</span></code></pre></div>
+
+</div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

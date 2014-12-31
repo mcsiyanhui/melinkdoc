@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>me link</title>
+ <link href="http://apidoc.stampmeapp.com/atom.xml" rel="self"/>
+ <link href="http://apidoc.stampmeapp.com/"/>
+ <updated>2014-12-30T17:07:04-08:00</updated>
+ <id>http://apidoc.stampmeapp.com</id>
+ <author>
+   <name>Min Chen</name>
+   <email></email>
+ </author>
+
+ 
+
+</feed>
