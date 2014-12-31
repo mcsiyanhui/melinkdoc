@@ -12,7 +12,7 @@ nav-index: 9
 登录
 ----------------
 
-地址:`/v1/{appid}/login`
+地址:`/v1/{app_id}/login`
 
 方法:`GET`
 

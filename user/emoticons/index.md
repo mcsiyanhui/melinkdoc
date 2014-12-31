@@ -8,7 +8,7 @@ nav-index: 5
 获取用户大头贴列表
 ----------------
 
-地址:`/v1/{appid}/user/emoticons`
+地址:`/v1/{app_id}/user/emoticons`
 
 方法:`GET`
 
@@ -41,7 +41,7 @@ nav-index: 5
 获取用户大头贴详情
 ----------------
 
-地址:`/v1/{appid}/user/emoticon/{emoticonid}`
+地址:`/v1/{app_id}/user/emoticon/{emoticonid}`
 
 方法:`GET`
 
@@ -79,7 +79,7 @@ nav-index: 5
 新增或更新用户大头贴
 ----------------
 
-地址:`/v1/{appid}/user/emoticon/{emoticonid}`
+地址:`/v1/{app_id}/user/emoticon/{emoticonid}`
 
 方法:`POST`
 
@@ -110,7 +110,7 @@ nav-index: 5
 删除用户大头贴
 ----------------
 
-地址:`/v1/{appid}/user/emoticon/{emoticonid}`
+地址:`/v1/{app_id}/user/emoticon/{emoticonid}`
 
 方法:`DELETE`
 

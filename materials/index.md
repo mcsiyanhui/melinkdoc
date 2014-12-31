@@ -9,8 +9,8 @@ nav-index: 7
 获取角色,大头贴素材分组与素材
 ----------------
 
-地址:`/v1/{appid}/materials/roles"`
-地址:`/v1/{appid}/materials/emoticons"`
+地址:`/v1/{app_id}/materials/roles"`
+地址:`/v1/{app_id}/materials/emoticons"`
 
 方法:`GET`
 
@@ -84,8 +84,8 @@ nav-index: 7
 按分组获取角色,大头贴素材
 ----------------
 
-地址:`/v1/{appid}/materials/role/group/{groupid}`
-地址:`/v1/{appid}/materials/emoticon/group/{groupid}`
+地址:`/v1/{app_id}/materials/role/group/{groupid}`
+地址:`/v1/{app_id}/materials/emoticon/group/{groupid}`
 
 方法:`GET`
 
@@ -159,7 +159,7 @@ nav-index: 7
 获取动态表情素材分组与素材
 ----------------
 
-地址:`/v1/{appid}/materials/expressions"`
+地址:`/v1/{app_id}/materials/expressions"`
 
 方法:`GET`
 
@@ -208,7 +208,7 @@ nav-index: 7
 按分组获取动态表情素材
 ----------------
 
-地址:`/v1/{appid}/materials/expression/group/{groupid}`
+地址:`/v1/{app_id}/materials/expression/group/{groupid}`
 
 方法:`GET`
 

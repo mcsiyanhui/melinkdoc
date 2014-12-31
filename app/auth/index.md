@@ -7,13 +7,13 @@ App认证授权相关接口
 
 设备注册
 ----------------
-App向Server注册设备,获取appid和appkey
+App向Server注册设备,获取app_id和appkey
 
 地址: `/v1/app/register`
 
 方法: `GET`
 
-说明: 不需要`sign`签名,不需要传`appid`,`sign`,`timestamp`参数
+说明: 不需要`sign`签名,不需要传`app_id`,`sign`,`timestamp`参数
 
 参数:
 
@@ -34,7 +34,7 @@ App向Server注册设备,获取appid和appkey
 获取版本号
 ----------------
 
-地址:`/v1/{appid}/app/version"`
+地址:`/v1/{app_id}/app/version"`
 
 方法:`GET`
 
@@ -66,7 +66,7 @@ App向Server注册设备,获取appid和appkey
 获取手机验证码
 ----------------
 
-地址:`/v1/{appid}/app/sms/{mobile}`
+地址:`/v1/{app_id}/app/sms/{mobile}`
 
 方法:`GET`
 

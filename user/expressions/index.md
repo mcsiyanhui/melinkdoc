@@ -8,7 +8,7 @@ nav-index: 6
 获取用户动态表情列表
 ----------------
 
-地址:`/v1/{appid}/user/expressions`
+地址:`/v1/{app_id}/user/expressions`
 
 方法:`GET`
 
@@ -41,7 +41,7 @@ nav-index: 6
 获取用户表情详情
 ----------------
 
-地址:`/v1/{appid}/user/expression/{expressionid}`
+地址:`/v1/{app_id}/user/expression/{expressionid}`
 
 方法:`GET`
 
@@ -78,7 +78,7 @@ nav-index: 6
 新增用户动态表情
 ----------------
 
-地址:`/v1/{appid}/user/expression/{expressionid}`
+地址:`/v1/{app_id}/user/expression/{expressionid}`
 
 方法:`POST`
 
@@ -108,7 +108,7 @@ nav-index: 6
 删除用户动态表情
 ----------------
 
-地址:`/v1/{appid}/user/expression/{expressionid}`
+地址:`/v1/{app_id}/user/expression/{expressionid}`
 
 方法:`DELETE`
 

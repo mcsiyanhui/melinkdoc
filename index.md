@@ -11,11 +11,11 @@ App接入
 发起API请求
 ----------------
 
-**API根路径** - `https://api.stampmeapp.com/{v1}/{appid}`, 其中 `/{v1}` 为API版本号, `{appid}` 为设备的APPID
-({appid}的获取方式,参考 **App接入** 部分) 
+**API根路径** - `https://api.stampmeapp.com/{v1}/{app_id}`, 其中 `/{v1}` 为API版本号, `{app_id}` 为设备的app_id
+({app_id}的获取方式,参考 **App接入** 部分) 
 测试API采用 `HTTP` 请求方式, 线上API只支持 `HTTPS`  
 
-若需要请求所有的大头贴素材分组,则在根路径下加上大头贴素材资源的子路径:   https://api.stampmeapp.com/{v1}/{appid}/materials/emoticons
+若需要请求所有的大头贴素材分组,则在根路径下加上大头贴素材资源的子路径:   https://api.stampmeapp.com/{v1}/{app_id}/materials/emoticons
 
 具体请参考 [App接入指南](/app/link/)
 

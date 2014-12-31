@@ -9,7 +9,7 @@ nav-index: 10
 ----------------
 用户在表情meapp里分享
 
-地址: `/v1/{appid}/share/myshare"`
+地址: `/v1/{app_id}/share/myshare"`
 
 方法: `GET`
 
@@ -44,7 +44,7 @@ nav-index: 10
 发布一个新的分享
 ----------------
 
-地址:`/v1/{appid}/share/myshare"`
+地址:`/v1/{app_id}/share/myshare"`
 
 方法:`POST`
 
@@ -74,7 +74,7 @@ nav-index: 10
 删除我发布的一个分享
 ----------------
 
-地址:`/v1/{appid}/share/myshare"`
+地址:`/v1/{app_id}/share/myshare"`
 
 方法:`DELETE`
 

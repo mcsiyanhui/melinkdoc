@@ -8,7 +8,7 @@ nav-index: 4
 获取用户角色
 ----------------
 
-地址:`/v1/{appid}/user/roles"`
+地址:`/v1/{app_id}/user/roles"`
 
 方法:`GET`
 
@@ -41,7 +41,7 @@ nav-index: 4
 获取用户角色详情
 ----------------
 
-地址:`/v1/{appid}/user/role/{roleid}`
+地址:`/v1/{app_id}/user/role/{roleid}`
 
 方法:`GET`
 
@@ -78,7 +78,7 @@ nav-index: 4
 新增或更新用户角色
 ----------------
 
-地址:`/v1/{appid}/user/role/{roleid}`
+地址:`/v1/{app_id}/user/role/{roleid}`
 
 方法:`POST`
 
@@ -109,7 +109,7 @@ nav-index: 4
 删除用户角色
 ----------------
 
-地址:`/v1/{appid}/user/role/{roleid}`
+地址:`/v1/{app_id}/user/role/{roleid}`
 
 方法:`DELETE`
 

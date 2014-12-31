@@ -8,7 +8,7 @@ nav-index: 3
 用户登录
 ----------------
 
-地址:`/v1/{appid}/user/login"`
+地址:`/v1/{app_id}/user/login"`
 
 方法:`POST`  
 
@@ -45,7 +45,7 @@ nav-index: 3
 用户注册
 ----------------
 
-地址:`/v1/{appid}/user/register`
+地址:`/v1/{app_id}/user/register`
 
 方法:`POST`  
 
@@ -91,7 +91,7 @@ nav-index: 3
 手机找回密码
 ----------------
 
-地址:`/v1/{appid}/user/forgot/cellphone"`
+地址:`/v1/{app_id}/user/forgot/cellphone"`
 
 方法:`POST`
 
@@ -113,7 +113,7 @@ nav-index: 3
 密保问题找回密码
 ----------------
 
-地址:`/v1/{appid}/user/forgot/pwdquestion"`
+地址:`/v1/{app_id}/user/forgot/pwdquestion"`
 
 方法:`POST`
 
@@ -137,7 +137,7 @@ nav-index: 3
 获取密保问题
 ----------------
 
-地址:`/v1/{appid}/user/forgot/pwdquestion"`
+地址:`/v1/{app_id}/user/forgot/pwdquestion"`
 
 方法:`GET`
 
@@ -162,7 +162,7 @@ nav-index: 3
 用户通过第三方账户登录
 ----------------
 
-地址:`/v1/{appid}/user/sociallogin"`
+地址:`/v1/{app_id}/user/sociallogin"`
 
 方法:`POST`
 
@@ -199,7 +199,7 @@ nav-index: 3
 绑定第三方账户
 ----------------
 
-地址:`/v1/{appid}/user/socialbind"`
+地址:`/v1/{app_id}/user/socialbind"`
 
 方法:`POST`
 
@@ -225,7 +225,7 @@ nav-index: 3
 获取已绑定第三方账户列表
 ----------------
 
-地址:`/v1/{appid}/user/socialbind"`
+地址:`/v1/{app_id}/user/socialbind"`
 
 方法:`GET`
 
@@ -264,7 +264,7 @@ nav-index: 3
 获取详细信息
 ----------------
 
-地址:`/v1/{appid}/user/profile"`
+地址:`/v1/{app_id}/user/profile"`
 
 方法:`GET`
 
@@ -294,7 +294,7 @@ nav-index: 3
 修改详细信息
 ----------------
 
-地址:`/v1/{appid}/user/profile"`
+地址:`/v1/{app_id}/user/profile"`
 
 方法:`POST`
 
@@ -321,7 +321,7 @@ nav-index: 3
 绑定手机
 ----------------
 
-地址:`/v1/{appid}/user/bindphone"`
+地址:`/v1/{app_id}/user/bindphone"`
 
 方法:`POST`
 
@@ -343,7 +343,7 @@ nav-index: 3
 验证密保问题
 ----------------
 
-地址:`/v1/{appid}/user/pwdquestion/validate"`
+地址:`/v1/{app_id}/user/pwdquestion/validate"`
 
 方法:`POST`
 
@@ -365,7 +365,7 @@ nav-index: 3
 修改密保问题
 ----------------
 
-地址:`/v1/{appid}/user/pwdquestion/update"`
+地址:`/v1/{app_id}/user/pwdquestion/update"`
 
 方法:`POST`
 
@@ -391,7 +391,7 @@ nav-index: 3
 修改密码
 ----------------
 
-地址:`/v1/{appid}/user/changepassword"`
+地址:`/v1/{app_id}/user/changepassword"`
 
 方法:`POST`
 
@@ -413,7 +413,7 @@ nav-index: 3
 获取用户留言列表
 ----------------
 
-地址:`/v1/{appid}/user/messages"`
+地址:`/v1/{app_id}/user/messages"`
 
 方法:`GET`
 
