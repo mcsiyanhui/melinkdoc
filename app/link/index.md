@@ -17,8 +17,8 @@ nav-index: 1
 `timestamp`参数（以`秒`为单位的`Int`类型,时区为GMT格林威治当地时间）：
 例如: 使用 `moment.js`的话，正确的`timestamp`计算方式应该为
 {% highlight javascript %}
-var offset = -8 // 西八区为-8,东八区为8，以此类推
-moment().format('X') + offset*60*60
+var offset = -8; // 西八区为-8,东八区为8，以此类推
+var timestamp = moment().format('X') + offset*60*60;
 {% endhighlight %}
 为了防止重放攻击，客户端每次请求都需要带上`timestamp`参数，服务器会进行判断此参数是否在当前服务器时间前后10分钟范围内
 
