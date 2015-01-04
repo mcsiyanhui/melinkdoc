@@ -32,7 +32,7 @@ nav-index: 7
                 "custom_tags": "[]", //自定义tag字段，json格式字符串
                 "ename": "此分组英文短名",
                 "gender": 1, //1表示男性
-                "localeEName": "chn", //分组的主要所属国际化
+                "locale_ename": "chn",//分组的主要所属国际化
                 "locales":["chn"],        //一个分组所属多个国家预留
                 "groups": [
                     {
@@ -50,7 +50,7 @@ nav-index: 7
                         "parent_group_id": 0,//父分组id
                         "sort": 1, //排序
                         "type": 1  //1表示角色使用，2表示大头贴使用，3表示通用
-                        "localeEName": "chn", //分组的主要所属国际化
+                        "locale_ename": "chn", //分组的主要所属国际化
                         "locales":["chn"],        //一个分组所属多个国家预留
 
                     }, //...省略多个子分组
@@ -111,7 +111,7 @@ nav-index: 7
         "custom_tags": "[]", //自定义tag字段，json格式字符串
         "ename": "此分组英文短名",
         "gender": 1, //1表示男性
-        "localeEName": "chn", //分组的主要所属国际化
+        "locale_ename": "chn", //分组的主要所属国际化
         "locales":["chn"],        //一个分组所属多个国家预留
         "groups": [
             {
@@ -196,7 +196,7 @@ nav-index: 7
         "custom_tags":"['tag1', 'tag2']" //管理员自定义tag属性,json格式
         "auto_version":"动态表情素材分组的版本号",
         "sort":1 //排序,越大排越前面,
-        "localeEName": "chn", //分组的主要所属国际化
+        "locale_ename": "chn", //分组的主要所属国际化
         "locales":[],        //一个分组所属多个国家预留,目前动态表情这里都是空
         "facials":[
             {
@@ -249,7 +249,7 @@ nav-index: 7
         "custom_tags":"['tag1', 'tag2']" //管理员自定义tag属性,json格式
         "auto_version":"动态表情素材分组的版本号",
         "sort":1 //排序,越大排越前面
-        "localeEName": "chn", //分组的主要所属国际化
+        "locale_ename": "chn", //分组的主要所属国际化
         "locales":[],        //一个分组所属多个国家预留,目前动态表情这里都是空
         "facials":[
             {
