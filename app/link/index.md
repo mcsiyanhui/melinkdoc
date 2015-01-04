@@ -14,7 +14,7 @@ nav-index: 1
 `Sign`签名参数生成规则:  
 将所传递参数的key根据字典排序,然后将`key`和`value`字符串想加起来,将最终的字符串`md5`哈希得到`sign`签名  
 
-`timestamp`参数（以`毫秒`为单位的`Int`类型,时区为GMT格林威治当地时间）：
+`timestamp`参数（以`秒`为单位的`Int`类型,时区为GMT格林威治当地时间）：
 例如: 使用 `moment.js`的话，正确的`timestamp`计算方式应该为
 {% highlight javascript %}
 var offset = -8 // 西八区为-8,东八区为8，以此类推
