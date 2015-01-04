@@ -32,6 +32,8 @@ nav-index: 7
                 "custom_tags": "[]", //自定义tag字段，json格式字符串
                 "ename": "此分组英文短名",
                 "gender": 1, //1表示男性
+                "localeEName": "chn", //分组的主要所属国际化
+                "locales":["chn"],        //一个分组所属多个国家预留
                 "groups": [
                     {
                         "auto_version": 1.0, //此分组版本号
@@ -48,6 +50,8 @@ nav-index: 7
                         "parent_group_id": 0,//父分组id
                         "sort": 1, //排序
                         "type": 1  //1表示角色使用，2表示大头贴使用，3表示通用
+                        "localeEName": "chn", //分组的主要所属国际化
+                        "locales":["chn"],        //一个分组所属多个国家预留
 
                     }, //...省略多个子分组
                 ],
@@ -57,14 +61,16 @@ nav-index: 7
                             "custom_tags": "11",
                             "ename": "aa1",
                             "id": 1,
-                            "img_url": "11",
-                            "img_url_animation": "11",
-                            "img_url_static": "11",
+                            "img_url_1":"动态表情素材图片地址，nie.1图片",
+                            "img_url_2":"动态表情素材图片地址，nie.2图片",
+                            "img_url_3":"动态表情素材图片地址，nie.3图片",
+                            "img_url_4":"动态表情素材图片地址，nie.4图片",
+                            "img_url_5":"动态表情素材图片地址，缩略图用",
                             "is_animation": true,
                             "name": "aa",
-                            "secondary_imgurl": "11",
-                            "sort": 1
-                        }, //...省略此分组下的多个素材
+                            "sort": 1,
+                            "locales":["chn", "jpn"],        //一个素材所属多个国家
+                        }, ...//省略此分组下的多个素材
                 ],
                 "icon_url": "分组图标地址",
                 "id": 1,
@@ -105,6 +111,8 @@ nav-index: 7
         "custom_tags": "[]", //自定义tag字段，json格式字符串
         "ename": "此分组英文短名",
         "gender": 1, //1表示男性
+        "localeEName": "chn", //分组的主要所属国际化
+        "locales":["chn"],        //一个分组所属多个国家预留
         "groups": [
             {
                 "auto_version": 1.0, //此分组版本号
@@ -130,14 +138,16 @@ nav-index: 7
                     "custom_tags": "11",
                     "ename": "aa1",
                     "id": 1,
-                    "img_url": "11",
-                    "img_url_animation": "11",
-                    "img_url_static": "11",
+                    "img_url_1":"动态表情素材图片地址，nie.1图片",
+                    "img_url_2":"动态表情素材图片地址，nie.2图片",
+                    "img_url_3":"动态表情素材图片地址，nie.3图片",
+                    "img_url_4":"动态表情素材图片地址，nie.4图片",
+                    "img_url_5":"动态表情素材图片地址，缩略图用",
                     "is_animation": true,
                     "name": "aa",
-                    "secondary_imgurl": "11",
-                    "sort": 1
-                }, //...省略此分组下的多个素材
+                    "sort": 1,
+                    "locales":["chn", "jpn"],        //一个素材所属多个国家
+                }, ...//省略此分组下的多个素材
         ],
         "icon_url": "分组图标地址",
         "id": 1,
@@ -185,20 +195,24 @@ nav-index: 7
         "custom_key_value":"{key:val}" //管理员自定义kv属性,json格式
         "custom_tags":"['tag1', 'tag2']" //管理员自定义tag属性,json格式
         "auto_version":"动态表情素材分组的版本号",
-        "sort":1 //排序,越大排越前面
+        "sort":1 //排序,越大排越前面,
+        "localeEName": "chn", //分组的主要所属国际化
+        "locales":[],        //一个分组所属多个国家预留,目前动态表情这里都是空
         "facials":[
             {
                 "id":333 //动态表情素材ID
                 "ename":"动态表情素材的英文短名称",
                 "name":"动态表情素材名称",
-                "img_url":"动态表情素材图片地址",
-                'img_url_static':"素材的静态图片地址",
-                'img_url_animation':"素材的动态图片地址",
-                "secondary_imgurl":"动态表情素材图片备用地址",
+                "img_url_1":"动态表情素材图片地址，front的图片",
+                "img_url_2":"动态表情素材图片地址，body的图片",
+                "img_url_3":"动态表情素材图片地址，back的图片",
+                "img_url_4":"动态表情素材图片地址，预留备用",
+                "img_url_5":"动态表情素材图片地址，预留备用",
                 "is_animation":"是否是动画",
                 "custom_key_value":"{key:val}" //管理员自定义kv属性,json格式
                 "custom_tags":"['tag1', 'tag2']" //管理员自定义tag属性,json格式
                 "sort":1 //排序,越大排越前面
+                "locales":[],        //一个分组所属多个国家预留,目前动态表情这里都是空
             }, ...
         ]
     }, ...
@@ -235,19 +249,23 @@ nav-index: 7
         "custom_tags":"['tag1', 'tag2']" //管理员自定义tag属性,json格式
         "auto_version":"动态表情素材分组的版本号",
         "sort":1 //排序,越大排越前面
+        "localeEName": "chn", //分组的主要所属国际化
+        "locales":[],        //一个分组所属多个国家预留,目前动态表情这里都是空
         "facials":[
             {
                 "id":333 //动态表情素材ID
                 "ename":"动态表情素材的英文短名称",
                 "name":"动态表情素材名称",
-                "img_url":"动态表情素材图片地址",
-                'img_url_static':"素材的静态图片地址",
-                'img_url_animation':"素材的动态图片地址",
-                "secondary_imgurl":"动态表情素材图片备用地址",
+                "img_url_1":"动态表情素材图片地址，front的图片",
+                "img_url_2":"动态表情素材图片地址，body的图片",
+                "img_url_3":"动态表情素材图片地址，back的图片",
+                "img_url_4":"动态表情素材图片地址，预留备用",
+                "img_url_5":"动态表情素材图片地址，预留备用",
                 "is_animation":"是否是动画",
                 "custom_key_value":"{key:val}" //管理员自定义kv属性,json格式
                 "custom_tags":"['tag1', 'tag2']" //管理员自定义tag属性,json格式
                 "sort":1 //排序,越大排越前面
+                "locales":[],        //一个分组所属多个国家预留,目前动态表情这里都是空
             }, ...
         ]
     }
