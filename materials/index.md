@@ -169,7 +169,7 @@ nav-index: 7
 获取动态表情素材分组与素材
 ----------------
 
-地址:`/v1/{app_id}/materials/expressions"`
+地址:`/v1/{app_id}/materials/expressions`
 
 方法:`GET`
 

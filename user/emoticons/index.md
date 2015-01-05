@@ -95,8 +95,8 @@ nav-index: 5
 | name           |String  |大头贴名称                          |*新增必传|
 | gender         |Int     |大头贴性别                          |*新增必传|
 | img_data       |String  |拼接好的大头贴图片（base64字符串）         |*新增必传|
-| base_roleid    |Int     |此大头贴的来源角色ID                   |*新增必传, 无法修改|
-| is_default     |true    |是否为默认大头贴                      |否|
+| base_role_id    |Int     |此大头贴的来源角色ID                   |*新增必传, 无法修改，如果重新创建的，传入0|
+| is_default     |Int    |是否为默认大头贴,是传入1，否传入0                      |否|
 | material_ids   |JsonArray   |素材ID列表,[1,2,3,4]           |否 |
 | adjustments    |JsonArray   |素材变换列表.['1','2','3']       |否 |
 

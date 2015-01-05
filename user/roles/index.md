@@ -94,10 +94,10 @@ nav-index: 4
 | name           |String  |角色名称                          |*新增必传|
 | gender         |Int     |角色性别                          |*新增必传|
 | img_data       |String  |拼接好的角色图片（base64字符串）         |*新增必传|
-| base_roleid    |Int     |此角色的来源角色ID                   |*新增必传, 无法修改|
-| is_default     |true    |是否为默认角色                      |否|
-| material_ids   |JsonArray   |素材ID列表,[1,2,3,4]           |否 |
-| adjustments    |JsonArray   |素材变换列表.['1','2','3']       |否 |
+| base_role_id    |Int     |此角色的来源角色ID                   |*新增必传, 无法修改，如果重新创建的，传入0|
+| is_default     |Int    |是否为默认角色,是传入1，否传入0                      |否|
+| material_ids   |JsonArray   |素材ID列表,[1,2,3,4]           |新增必传 |
+| adjustments    |JsonArray   |素材变换列表.['1','2','3']       |新增必传 |
 
 返回值:
 {% highlight js %}
