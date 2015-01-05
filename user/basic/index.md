@@ -443,7 +443,7 @@ nav-index: 3
 用户留言
 ----------------
 
-地址:`/user/message`
+地址:`/v1/{app_id}/user/messages`
 
 方法:`POST`
 

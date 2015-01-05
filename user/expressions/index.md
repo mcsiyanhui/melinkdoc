@@ -89,10 +89,10 @@ nav-index: 6
 | 参数名称        |类型    |说明                              |是否必须|
 |:------------- |:-------|:--------------------------------|:-----|
 | logintoken     |String  |用户登录令牌识别码                    |*是 |
-| name           |String  |大头贴名称                          |*新增必传|
-| img_data       |String  |拼接好的大头贴图片（base64字符串）         |*新增必传|
-| base_roleid    |Int     |此大头贴的来源角色ID                   |*新增必传, 无法修改|
-| is_default     |int    |是否为默认大头贴,1是0不是                      |否|
+| name           |String  |动态表情名称                          |*新增必传|
+| img_data       |String  |拼接好的动态表情图片（base64字符串）         |*新增必传|
+| base_role_id    |Int     |此动态表情的来源角色ID                   |*新增必传, 无法修改|
+| is_default     |int    |是否为默认动态表情,1是0不是                      |否|
 | facials_ids   |JsonArray   |素材ID列表,[1,2,3,4]           |否 |
 | adjustments    |JsonArray   |素材变换列表.['1','2','3']       |否 |
 
