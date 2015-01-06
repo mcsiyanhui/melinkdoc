@@ -78,6 +78,7 @@ nav-index: 7
                 "name": "分组名称",
                 "parent_group_id": 0,//父分组id
                 "sort": 1, //排序
+                "test": false, //此素材分组是否为测试用
                 "type": 1  //1表示角色使用，2表示大头贴使用，3表示通用
 
             },//...省略顶级分组信息
@@ -155,6 +156,7 @@ nav-index: 7
         "name": "分组名称",
         "parent_group_id": 0,//父分组id
         "sort": 1, //排序
+        "test": false, //此素材分组是否为测试用
         "type": 1  //1表示角色使用，2表示大头贴使用，3表示通用
 }
 {% endhighlight %}
@@ -198,6 +200,7 @@ nav-index: 7
         "sort":1 //排序,越大排越前面,
         "locale_ename": "chn", //分组的主要所属国际化
         "locales":[],        //一个分组所属多个国家预留,目前动态表情这里都是空
+        "test": false, //此素材分组是否为测试用
         "facials":[
             {
                 "id":333 //动态表情素材ID
@@ -251,6 +254,7 @@ nav-index: 7
         "sort":1 //排序,越大排越前面
         "locale_ename": "chn", //分组的主要所属国际化
         "locales":[],        //一个分组所属多个国家预留,目前动态表情这里都是空
+        "test": false, //此素材分组是否为测试用
         "facials":[
             {
                 "id":333 //动态表情素材ID
