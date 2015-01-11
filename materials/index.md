@@ -61,11 +61,11 @@ nav-index: 7
                             "custom_tags": "11",
                             "ename": "aa1",
                             "id": 1,
-                            "img_url_1":"动态表情素材图片地址，nie.1图片",
-                            "img_url_2":"动态表情素材图片地址，nie.2图片",
-                            "img_url_3":"动态表情素材图片地址，nie.3图片",
-                            "img_url_4":"动态表情素材图片地址，nie.4图片",
-                            "img_url_5":"动态表情素材图片地址，缩略图用",
+                            "img_url_1":"捏脸素材图片地址，nie.1图片",
+                            "img_url_2":"捏脸素材图片地址，nie.2图片",
+                            "img_url_3":"捏脸素材图片地址，nie.3图片",
+                            "img_url_4":"捏脸素材图片地址，nie.4图片",
+                            "img_url_5":"捏脸素材图片地址，缩略图用",
                             "is_animation": true,
                             "name": "aa",
                             "sort": 1,
@@ -139,11 +139,11 @@ nav-index: 7
                     "custom_tags": "11",
                     "ename": "aa1",
                     "id": 1,
-                    "img_url_1":"动态表情素材图片地址，nie.1图片",
-                    "img_url_2":"动态表情素材图片地址，nie.2图片",
-                    "img_url_3":"动态表情素材图片地址，nie.3图片",
-                    "img_url_4":"动态表情素材图片地址，nie.4图片",
-                    "img_url_5":"动态表情素材图片地址，缩略图用",
+                    "img_url_1":"捏脸素材图片地址，nie.1图片",
+                    "img_url_2":"捏脸素材图片地址，nie.2图片",
+                    "img_url_3":"捏脸素材图片地址，nie.3图片",
+                    "img_url_4":"捏脸素材图片地址，nie.4图片",
+                    "img_url_5":"捏脸素材图片地址，缩略图用",
                     "is_animation": true,
                     "name": "aa",
                     "sort": 1,
@@ -201,6 +201,7 @@ nav-index: 7
         "locale_ename": "chn", //分组的主要所属国际化
         "locales":[],        //一个分组所属多个国家预留,目前动态表情这里都是空
         "test": false, //此素材分组是否为测试用
+        "type":1, //1表示一般表情，2表示商店表情
         "facials":[
             {
                 "id":333 //动态表情素材ID
@@ -255,6 +256,7 @@ nav-index: 7
         "locale_ename": "chn", //分组的主要所属国际化
         "locales":[],        //一个分组所属多个国家预留,目前动态表情这里都是空
         "test": false, //此素材分组是否为测试用
+        "type":1, //1表示一般表情，2表示商店表情
         "facials":[
             {
                 "id":333 //动态表情素材ID
