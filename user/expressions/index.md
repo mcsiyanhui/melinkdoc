@@ -64,7 +64,7 @@ nav-index: 6
     "sort":2, //排序
     "update_time":"2014-11-28 17:01:47"//更新时间
     "write_time":"2014-11-28 17:01:47"//创建时间
-    "facials":{
+    "materials":{
        {
             "id":111,
             "ename":"唯一标识", // 这里后台可以录入客户端原来对于某一个素材唯一标识, 免去重复编码
@@ -93,7 +93,7 @@ nav-index: 6
 | img_data       |String  |拼接好的动态表情图片（base64字符串）         |*新增必传|
 | base_role_id    |Int     |此动态表情的来源角色ID                   |*新增必传, 无法修改|
 | is_default     |int    |是否为默认动态表情,1是0不是                      |否|
-| facials_ids   |JsonArray   |素材ID列表,[1,2,3,4]           |否 |
+| expression_material_ids   |JsonArray   |素材ID列表,[1,2,3,4]           |否 |
 | adjustments    |JsonArray   |素材变换列表.['1','2','3']       |否 |
 
 
