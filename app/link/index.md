@@ -14,12 +14,7 @@ nav-index: 1
 `Sign`签名参数生成规则:  
 将所传递参数的key根据字典排序,然后将`key`和`value`字符串想加起来,将最终的字符串`md5`哈希得到`sign`签名  
 
-`timestamp`参数（以`秒`为单位的`Int`类型,时区为GMT格林威治当地时间）：
-例如: 使用 `moment.js`的话，正确的`timestamp`计算方式应该为
-{% highlight javascript %}
-var offset = -8; // 西八区为-8,东八区为8，以此类推
-var timestamp = moment().format('X') + offset*60*60;
-{% endhighlight %}
+`timestamp`参数（以`毫秒`为单位的`Int`类型,时区为GMT格林威治时间）：
 为了防止重放攻击，客户端每次请求都需要带上`timestamp`参数，服务器会进行判断此参数是否在当前服务器时间前后10分钟范围内
 
 请求示例
@@ -63,5 +58,8 @@ var timestamp = moment().format('X') + offset*60*60;
 特别说明
 ----------------
 
+*如果接口需要上传`Base64`图片文件的话，`key`名会约定为`img_data`，考虑性能问题，此`key`和`value`不要参与签名，在文档会有特殊说明。
+
 后续文档中的返回值都表示响应成功里的`result`属性值,如没有特殊说明,接口写到的参数都为必传,并且都需要时间戳`timestamp`和签名`sign`。
 所有接口中传递的参数,请求`url`地址、请求参数key和返回值的`key`都约定为纯小写。
+

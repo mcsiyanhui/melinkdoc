@@ -49,4 +49,5 @@ API仅支持`JSON`格式, 该`JSON`数据没有根元素, 其中的属性字段�
 * [Open](/open/) - 对外开放数据接口
 * [Page](/page/) - 页面接入接口
 * [Share](/share/) - 分享接口
+* [face++](/facepp/) - 明星脸识别接口
 

@@ -84,7 +84,7 @@ nav-index: 4
 
 说明:当传递`roleid`为0时，表示更新此角色信息，另外多个`materialid`根据以下方式传递,
 
-注意:adjustments数组长度必须和material_ids相同，如果没有形变，请留空
+注意:adjustments数组长度必须和material_ids相同，如果没有形变，请留空，img_data的key和value不参与签名
 
 参数:
 
@@ -93,7 +93,7 @@ nav-index: 4
 | logintoken     |String  |用户登录令牌识别码                    |*是 |
 | name           |String  |角色名称                          |*新增必传|
 | gender         |Int     |角色性别                          |*新增必传|
-| img_data       |String  |拼接好的角色图片（base64字符串）         |*新增必传|
+| img_data       |String  |拼接好的角色图片（base64字符串），不参与签名         |*新增必传|
 | base_role_id    |Int     |此角色的来源角色ID                   |*新增必传, 无法修改，如果重新创建的，传入0|
 | is_default     |Int    |是否为默认角色,是传入1，否传入0                      |否|
 | material_ids   |JsonArray   |素材ID列表,[1,2,3,4]           |新增必传 |
