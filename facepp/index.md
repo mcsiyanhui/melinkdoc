@@ -29,11 +29,12 @@ face++人脸识别
         "name":"范冰冰",//明星的名字
         "gender":"女",//性别
         "intro":"",//简介
-        "starPic1":"http://www.faceplusplus.com.cn/wp-content/themes/faceplusplus/assets/img/demo/thumbnail/1.jpg?v=2",//卡通头像地址
-        "starPic2":"",
-        "starPic3":"",
-        "starPic4":"",
-        "starPic5":"",
+        "star_pic1":"http://www.faceplusplus.com.cn/wp-content/themes/faceplusplus/assets/img/demo/thumbnail/1.jpg?v=2",//原始明星头像
+        "star_pic2":"http://www.faceplusplus.com.cn/wp-content/themes/faceplusplus/assets/img/demo/thumbnail/1.jpg?v=2",//卡通头像地址
+        "star_pic3":"",
+        "star_pic4":"",
+        "star_pic5":"",
+        "user_upload_avatar":"http://www.faceplusplus.com.cn/wp-content/themes/faceplusplus/assets/img/demo/thumbnail/1.jpg?v=2",//用户上传的头像地址
         "role_id":0,       //卡通头像的基础role_id
         "confidence":90.99 //相似度
 }
